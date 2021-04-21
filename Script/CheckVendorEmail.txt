@@ -1,0 +1,11 @@
+USE [desiclothing]
+GO
+
+DECLARE	@return_value int
+
+EXEC	@return_value = [dbo].[CheckVendorEmail]
+		@@Email = N'my@my.com'
+
+SELECT	'Return Value' = @return_value
+
+GO

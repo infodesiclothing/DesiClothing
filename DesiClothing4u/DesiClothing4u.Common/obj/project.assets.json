@@ -6274,11 +6274,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Work\\DesiClothing\\DesiClothing4u\\DesiClothing4u.Common\\DesiClothing4u.Common.csproj",
+      "projectUniqueName": "E:\\Work\\DesiClothingLocal\\DesiClothing4u\\DesiClothing4u.Common\\DesiClothing4u.Common.csproj",
       "projectName": "DesiClothing4u.Common",
-      "projectPath": "E:\\Work\\DesiClothing\\DesiClothing4u\\DesiClothing4u.Common\\DesiClothing4u.Common.csproj",
+      "projectPath": "E:\\Work\\DesiClothingLocal\\DesiClothing4u\\DesiClothing4u.Common\\DesiClothing4u.Common.csproj",
       "packagesPath": "C:\\Users\\JUMBO COMPUTERS\\.nuget\\packages\\",
-      "outputPath": "E:\\Work\\DesiClothing\\DesiClothing4u\\DesiClothing4u.Common\\obj\\",
+      "outputPath": "E:\\Work\\DesiClothingLocal\\DesiClothing4u\\DesiClothing4u.Common\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

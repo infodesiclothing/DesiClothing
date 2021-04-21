@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Naks+Voo1RszEJytXzMbjy0d548TG14VCzPXHsAq4giQth9ZdnNcYJnAdN7mcRKU4Qyh+RrQFNnUk43/2xPdjA==",
+  "dgSpecHash": "ZOrNbhaoDqjfeWbofRJ7vKM/4FfVjIzovUK/z1/PAjawQiziBpQoEoNucSu02ZJJMc18VUtCh7+JIjvMq48fEQ==",
   "success": true,
-  "projectFilePath": "E:\\Work\\DesiClothing\\DesiClothing4u\\DesiClothing4u.UI\\DesiClothing4u.UI.csproj",
+  "projectFilePath": "E:\\Work\\DesiClothingLocal\\DesiClothing4u\\DesiClothing4u.UI\\DesiClothing4u.UI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\JUMBO COMPUTERS\\.nuget\\packages\\grid.mvc\\3.1.0-ci1036\\grid.mvc.3.1.0-ci1036.nupkg.sha512",
     "C:\\Users\\JUMBO COMPUTERS\\.nuget\\packages\\gridmvccore\\4.0.0\\gridmvccore.4.0.0.nupkg.sha512",

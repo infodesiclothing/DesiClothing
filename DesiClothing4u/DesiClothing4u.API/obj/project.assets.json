@@ -9761,11 +9761,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Work\\DesiClothing\\DesiClothing4u\\DesiClothing4u.API\\DesiClothing4u.API.csproj",
+      "projectUniqueName": "E:\\Work\\DesiClothingLocal\\DesiClothing4u\\DesiClothing4u.API\\DesiClothing4u.API.csproj",
       "projectName": "DesiClothing4u.API",
-      "projectPath": "E:\\Work\\DesiClothing\\DesiClothing4u\\DesiClothing4u.API\\DesiClothing4u.API.csproj",
+      "projectPath": "E:\\Work\\DesiClothingLocal\\DesiClothing4u\\DesiClothing4u.API\\DesiClothing4u.API.csproj",
       "packagesPath": "C:\\Users\\JUMBO COMPUTERS\\.nuget\\packages\\",
-      "outputPath": "E:\\Work\\DesiClothing\\DesiClothing4u\\DesiClothing4u.API\\obj\\",
+      "outputPath": "E:\\Work\\DesiClothingLocal\\DesiClothing4u\\DesiClothing4u.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -9788,8 +9788,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "E:\\Work\\DesiClothing\\DesiClothing4u\\DesiClothing4u.Common\\DesiClothing4u.Common.csproj": {
-              "projectPath": "E:\\Work\\DesiClothing\\DesiClothing4u\\DesiClothing4u.Common\\DesiClothing4u.Common.csproj"
+            "E:\\Work\\DesiClothingLocal\\DesiClothing4u\\DesiClothing4u.Common\\DesiClothing4u.Common.csproj": {
+              "projectPath": "E:\\Work\\DesiClothingLocal\\DesiClothing4u\\DesiClothing4u.Common\\DesiClothing4u.Common.csproj"
             }
           }
         }
