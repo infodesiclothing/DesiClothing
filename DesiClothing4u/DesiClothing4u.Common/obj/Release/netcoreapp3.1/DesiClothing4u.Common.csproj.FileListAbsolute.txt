@@ -1,0 +1,13 @@
+F:\Mars\FreelanceWork\DesiClothingNewAgain - Copy\desiclothing\DesiClothing4u\DesiClothing4u.Common\bin\Release\netcoreapp3.1\Properties\launchSettings.json
+F:\Mars\FreelanceWork\DesiClothingNewAgain - Copy\desiclothing\DesiClothing4u\DesiClothing4u.Common\bin\Release\netcoreapp3.1\DesiClothing4u.Common.deps.json
+F:\Mars\FreelanceWork\DesiClothingNewAgain - Copy\desiclothing\DesiClothing4u\DesiClothing4u.Common\bin\Release\netcoreapp3.1\DesiClothing4u.Common.dll
+F:\Mars\FreelanceWork\DesiClothingNewAgain - Copy\desiclothing\DesiClothing4u\DesiClothing4u.Common\bin\Release\netcoreapp3.1\DesiClothing4u.Common.pdb
+F:\Mars\FreelanceWork\DesiClothingNewAgain - Copy\desiclothing\DesiClothing4u\DesiClothing4u.Common\obj\Release\netcoreapp3.1\DesiClothing4u.Common.csprojAssemblyReference.cache
+F:\Mars\FreelanceWork\DesiClothingNewAgain - Copy\desiclothing\DesiClothing4u\DesiClothing4u.Common\obj\Release\netcoreapp3.1\DesiClothing4u.Common.AssemblyInfoInputs.cache
+F:\Mars\FreelanceWork\DesiClothingNewAgain - Copy\desiclothing\DesiClothing4u\DesiClothing4u.Common\obj\Release\netcoreapp3.1\DesiClothing4u.Common.AssemblyInfo.cs
+F:\Mars\FreelanceWork\DesiClothingNewAgain - Copy\desiclothing\DesiClothing4u\DesiClothing4u.Common\obj\Release\netcoreapp3.1\DesiClothing4u.Common.csproj.CoreCompileInputs.cache
+F:\Mars\FreelanceWork\DesiClothingNewAgain - Copy\desiclothing\DesiClothing4u\DesiClothing4u.Common\obj\Release\netcoreapp3.1\DesiClothing4u.Common.RazorTargetAssemblyInfo.cache
+F:\Mars\FreelanceWork\DesiClothingNewAgain - Copy\desiclothing\DesiClothing4u\DesiClothing4u.Common\obj\Release\netcoreapp3.1\staticwebassets\DesiClothing4u.Common.StaticWebAssets.Manifest.cache
+F:\Mars\FreelanceWork\DesiClothingNewAgain - Copy\desiclothing\DesiClothing4u\DesiClothing4u.Common\obj\Release\netcoreapp3.1\staticwebassets\DesiClothing4u.Common.StaticWebAssets.xml
+F:\Mars\FreelanceWork\DesiClothingNewAgain - Copy\desiclothing\DesiClothing4u\DesiClothing4u.Common\obj\Release\netcoreapp3.1\DesiClothing4u.Common.dll
+F:\Mars\FreelanceWork\DesiClothingNewAgain - Copy\desiclothing\DesiClothing4u\DesiClothing4u.Common\obj\Release\netcoreapp3.1\DesiClothing4u.Common.pdb

@@ -1,0 +1,699 @@
+﻿@model IEnumerable<DesiClothing4u.Common.Models.Product>
+@{
+    ViewData["Title"] = "Detail Page";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Desi Designs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Desi Designs" />
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <link href="~/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="~/css/login_overlay.css" rel='stylesheet' type='text/css' />
+    <link href="~/css/register_overlay.css" rel='stylesheet' type='text/css' />
+    <link href="~/css/style6.css" rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="~/css/shop.css" type="text/css" />
+    <link rel="stylesheet" href="~/css/owl.carousel.css" type="text/css" media="all">
+    <link rel="stylesheet" href="~/css/owl.theme.css" type="text/css" media="all">
+    <link rel="stylesheet" type="text/css" href="~/css/jquery-ui1.css">
+    <link href="~/css/easy-responsive-tabs.css" rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="~/css/flexslider.css" type="text/css" media="screen" />
+    <link href="~/css/style.css" rel='stylesheet' type='text/css' />
+    <link href="~/css/fontawesome-all.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800"
+          rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="banner-top container-fluid" id="home">
+        <!-- header -->
+        <header>
+            <div class="row">
+                <div class="col-md-3 top-info text-left mt-lg-4">
+                    <h6>&nbsp;</h6>
+                </div>
+                <div class="col-md-6 logo-w3layouts text-center">
+                    <h1 class="logo-w3layouts">
+                        <a class="navbar-brand" href="@Url.Action("Index", "Home")">
+                            Desi Clothing
+                        </a>
+                    </h1>
+                </div>
+
+                <div class="col-md-3 top-info-cart text-right mt-lg-4">
+                    <ul class="cart-inner-info">
+                        <li class="button-log">
+                            <a class="btn-open" href="#">
+                                <span class="fa fa-user" aria-hidden="true"></span>
+                            </a>
+                        </li>
+                        @* Below commented by SM on Dec 3, 2020 and added another cart *@
+                        <li class="galssescart galssescart2 cart cart box_1">
+                            @*<form action="#" method="post" class="last">
+                        <input type="hidden" name="cmd" value="_cart">
+                        <input type="hidden" name="display" value="1">
+                        <button class="top_googles_cart" type="submit" name="submit" value="">
+                            My Cart
+                            <i class="fas fa-cart-arrow-down"></i>
+                        </button>
+                    </form>*@
+                            @*<i class="fa fa-shopping-cart" style="font-size:24px;color:black" aria-hidden="true" href="@Url.Action("MyCart", "Carts", new { CustId = ViewBag.UserName})">  My Cart </button>*@
+
+                            <a class="fa fa-shopping-cart" style="font-size:20px;color:black" aria-hidden="true" href="@Url.Action("MyCart", "Carts", new { CustId = ViewBag.UserName})">My Cart </a>
+                        </li>
+
+
+
+                        @* changes end here *@
+
+                    </ul>
+                    <!---->
+                    @* Added by SM on Dec 3, 2020 for cart *@
+                    @*<div id="mycart" display:none>*@
+                    <script>
+                                     function MyCart() {
+                                     var custId = '@(ViewBag.UserName)';
+                                    $.ajax({
+                                        url: '@Url.Action("MyCart", "Carts")',
+                                        type: 'POST',
+                                        data: { "CustId": custId}
+                                        , success: function (result) {
+
+                                        }
+                                        , error: function (result) {
+                                            alert("err " + result.responseText);
+                                            $('#mycart').replaceWith(result);
+                                            }
+                                        })
+                                }
+                    </script>
+                    @*</div>*@
+                    @* Added by SM on Dec 3, 2020 for cart ends here*@
+                    <div class="overlay-login text-left">
+                        <button type="button" class="overlay-close1">
+                            <i class="fa fa-times" aria-hidden="true"></i>
+                        </button>
+                        <div class="wrap">
+                            <h5 class="text-center mb-4">Login Now</h5>
+                            <div class="login p-5 bg-dark mx-auto mw-100">
+                                @*<form action="~/Vendor/CheckVendorLogin" id="frmLogin" method="post">*@
+                                <div class="form-check mb-2">
+                                    <input type="checkbox" class="form-check-input" id="loginasvendor">
+                                    <label class="form-check-label" for="loginasvendor">Login as Vendor</label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="mb-2">Email address</label>
+                                    <input type="email" class="form-control" id="exampleInputEmail1"
+                                           name="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" required="">
+                                    <small id="emailHelp" class="form-text text-muted">
+                                        We'll never share your email
+                                        with anyone else.
+                                    </small>
+                                </div>
+                                <div class="form-group">
+                                    <label class="mb-2">Password</label>
+                                    <input type="password" class="form-control" id="exampleInputPassword1"
+                                           name="exampleInputPassword1" placeholder="" required="">
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                                </div>
+                                <button type="submit" class="btn btn-primary submit mb-4">Sign In</button>
+                                <div>
+                                    <p>Don't have an account? <a href="#signupform" data-toggle="modal" data-dismiss="modal">Signup Here</a></p></br>
+                                </div>
+                                @*</form>*@
+                            </div>
+                            <!---->
+                        </div>
+                    </div>
+                    <!--Register-Form -->
+                    <div class="modal fade " id="signupform" tabindex="-1" role="dialog" aria-labelledby="signupform">
+                        <div class="modal-dialog overlay-register" role="document" style="max-width: 50%;">
+                            <div class="modal-content bg-dark">
+                                <button type="button" class="overlay-close2" data-dismiss="modal">
+                                    <i class="fa fa-times" aria-hidden="true"></i>
+                                </button>
+                                <div class="wrap">
+                                    <h5 class="text-center mb-4">Register</h5>
+
+                                    @*<form id="frmRegister" method="post" action="@Url.Action("CreateCustomer", "Home")">*@
+                                    <form id="frmRegister" method="post">
+                                        <div class="row contact_left_grid ">
+                                            <div class="col-md-6 con-left">
+                                                <div class="form-group" style="text-align:left">
+                                                    <label class="text-white">First Name</label>
+                                                    <input class="form-control" type="text" name="FirstName" id="FirstName" placeholder="" required="" value="1">
+                                                </div>
+                                                <div class="form-group" style="text-align:left">
+                                                    <label class="text-white">Last Name</label>
+                                                    <input class="form-control" type="text" name="LastName" id="LastName" placeholder="" required="" value="1">
+                                                </div>
+                                                <div class="form-group" style="text-align:left">
+                                                    <label class="text-white">Password</label>
+                                                    <input class="form-control" type="password" name="Password1" id="Password1" placeholder="" required="" value="1">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 con-right">
+                                                <div class="form-group" style="text-align:left">
+                                                    <label class="text-white">Date of birth</label>
+                                                    <input class="form-control" type="text" name="dateofbirth" placeholder="" required="" value="1">
+                                                </div>
+                                                <div class="form-group" style="text-align:left">
+                                                    <label class="text-white">Email</label>
+                                                    <input class="form-control" type="email" name="Email" id="Email" placeholder="" required="" value="1@1.com">
+                                                </div>
+                                                <div class="form-group" style="text-align:left">
+                                                    <label class="text-white">Confirm Password</label>
+                                                    <input class="form-control" type="password" name="Password2" id="Password2" placeholder="" required="" value="1">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row contact_left_grid">
+                                            <div class="col-md-6 con-left">
+                                                <div class="form-group" style="text-align:left">
+                                                    <label class="text-white">Street Address1</label>
+                                                    <input class="form-control" type="text" name="Streetaddress1" id="Streetaddress1" placeholder="" required="" value="1">
+                                                </div>
+                                                <div class="form-group" style="text-align:left">
+                                                    <label class="text-white">Street Address2</label>
+                                                    <input class="form-control" type="text" name="Streetaddress2" id="Streetaddress2" placeholder="" required="" value="1">
+                                                </div>
+                                                <div class="form-group" style="text-align:left">
+                                                    <label class="text-white">Country</label>
+                                                    <div class="select">
+                                                        <select class="form-control" name="Country" id="Country">
+                                                            <option value="x">Select Country</option>
+                                                            <option value="USA" selected>USA</option>
+                                                            <option value="Pakistan">Pakistan</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 con-right">
+                                                <div class="form-group" style="text-align:left">
+                                                    <label class="text-white">City.</label>
+                                                    <input class="form-control" type="text" name="City" id="City" placeholder="" required="" value="1">
+                                                </div>
+                                                <div class="form-group" style="text-align:left">
+                                                    <label class="text-white">Phone No.</label>
+                                                    <input class="form-control" type="text" name="Phoneno" id="Phoneno" placeholder="" required="" value="1">
+                                                </div>
+                                                <div class="form-group" style="text-align:left">
+                                                    <label class="text-white">Zip Code</label>
+                                                    <input class="form-control" type="text" name="Zipcode" id="Zipcode" placeholder="" required="" value="1">
+                                                </div>
+                                                @*<input class="form-control" type="submit" value="Submit">*@
+                                            </div>
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            @*<button type="submit" class="btn btn-primary submit mb-4">Register</button>*@
+                                            @*<input class="form-control" type="submit" value="Submit" onclick="Register()">*@
+                                            <input class="form-control" type="submit" value="Submit" onclick="Register1()">
+                                        </div>
+                                        <script>
+                                            function Register1() {
+                                                var FirstName1 = $('#FirstName').val();
+                                                var LastName1 = $('#LastName').val();
+                                                var Password1 = $('#Password1').val();
+                                                var Email1 = $('#Email').val();
+                                                var StreetAddress11 = $('#Streetaddress1').val();
+                                                var StreetAddress21 = $('#Streetaddress2').val();
+                                                var Country1 = $('#Country').val();
+                                                var City1 = $('#City').val();
+                                                var Phoneno1 = $('#Phoneno').val();
+                                                var ZipCode1 = $('#Zipcode').val();
+                                                alert('called AGAIN');
+                                                var MyCustomer = {
+                                                    FirstName: FirstName1,
+                                                    LastName: LastName1,
+                                                    Password: Password1,
+                                                    Email: Email1,
+                                                    StreetAddress1: StreetAddress11,
+                                                    Country: Country1,
+                                                    City: City1,
+                                                    Phoneno: Phoneno1,
+                                                    ZipCode: ZipCode1,
+                                                    StreetAddress2: StreetAddress21
+                                                }
+                                                alert(MyCustomer);
+                                                $.ajax({
+                                                    url: 'https://localhost:44328/Home/CreateCustomer',
+                                                    type: 'POST',
+                                                    dataType: 'json',
+                                                    contentType: 'application/json; charset=utf-8',
+                                                    data: JSON.stringify(MyCustomer)
+                                                    , success: function (result) {
+                                                        alert("Registered: ");
+                                                    }
+                                                    , error: function (result) {
+                                                        alert("err " + result.responseText);
+                                                    }
+                                                })
+                                            }
+                                        </script>
+                                        }
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/Register-Form -->
+                    <!---->
+                </div>
+            </div>
+            @*added by SM on Dec 16, 2020*@
+            <div class="col-md-3 top-info text-left mt-lg-4" id="mycart" display:none>
+            </div>
+            <div class="row">
+                @*<div style="text-align: right;">
+                @if (Model is DesiClothing4u.Common.Models.Customer)
+                {
+                    Html.RenderPartial("Welcome");
+                }
+                else if (Model is DesiClothing4u.Common.Models.Error)
+                {
+                    Html.RenderPartial("Error");
+                }
+                else
+                {
+
+                }
+            </div>*@
+                @*<div id="welcome" display:none">
+                <label id="welcomemessage">Welcome</label>
+                <script>
+                               @if (@Model.Customer==null)
+                                {
+                                }
+                                else
+                                {
+                                    <text>var a= "@Model.Customer.Username";
+                                    document.getElementById("welcome").innerHTML = "Welcome " + a; </text>
+                                }
+                </script>
+                <script>
+                function checklogin() {
+                //alert("First one");
+                var form = $("#frmLogin");
+                //alert(form.serialize());
+                var userId = $('#exampleInputEmail1').val();
+                var pwd = $('#exampleInputPassword1').val();
+                    alert(userId);
+                    alert(pwd);
+                var checkBox = document.getElementById("loginasvendor");
+                if (checkBox.checked == true) {
+                    //alert("Checked");
+                    $.ajax({
+                    data: { "email": userId, "pwd": pwd },
+                    url: '@Url.Action("CheckVendorLogin", "Vendor")',
+                    type: 'POST'
+                    , success: function (vendor) {
+                    alert("success ");
+                    }
+                    , error: function (a) {
+                    alert("err "+ result.responseText);
+                    }
+                    })
+                }
+                else {
+                    alert("UnChecked");
+                    }
+                }
+                </script>
+            </div>*@
+            </div>
+            <label class="top-log mx-auto"></label>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light top-header mb-2">
+
+                <button class="navbar-toggler mx-auto" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon">
+
+                    </span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav nav-mega mx-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link ml-lg-0" href="index.html">
+                                Home
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Women
+                            </a>
+                            <ul class="dropdown-menu mega-menu ">
+                                <li>
+                                    <div class="row">
+                                        <div class="col-md-4 media-list span4 text-left">
+                                            <h5 class="tittle-w3layouts-sub"> Clothing </h5>
+                                            <ul>
+                                                <li class="media-mini mt-3">
+                                                    <a href="shop.html">Kurti</a>
+                                                </li>
+                                                <li class="">
+                                                    <a href="shop.html"> Shoes</a>
+                                                </li>
+                                                <!-- <li>
+                                            <a href="shop.html">Prescription Glasses</a>
+                                        </li> -->
+                                                <li class="mt-3">
+                                                    <h5>View more pages</h5>
+                                                </li>
+                                                <li class="mt-2">
+                                                    <a href="about.html">About</a>
+                                                </li>
+                                                <li>
+                                                    <a href="customer.html">Customers</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-4 media-list span4 text-left">
+                                            <h5 class="tittle-w3layouts-sub"> Clothing </h5>
+                                            <div class="media-mini mt-3">
+                                                <a href="shop.html">
+                                                    <img src="images/g2.jpg" class="img-fluid" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 media-list span4 text-left">
+                                            <h5 class="tittle-w3layouts-sub"> Shoes </h5>
+                                            <div class="media-mini mt-3">
+                                                <a href="shop.html">
+                                                    <img src="images/g3.jpg" class="img-fluid" alt="">
+                                                </a>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <hr>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Men
+                            </a>
+                            <ul class="dropdown-menu mega-menu ">
+                                <li>
+                                    <div class="row">
+                                        <div class="col-md-4 media-list span4 text-left">
+                                            <h5 class="tittle-w3layouts-sub"> Clothing </h5>
+                                            <ul>
+                                                <li class="media-mini mt-3">
+                                                    <a href="shop.html">T-Shirts</a>
+                                                </li>
+                                                <li class="">
+                                                    <a href="shop.html">Shirts</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-4 media-list span4 text-left">
+                                            <h5 class="tittle-w3layouts-sub"> Shoes </h5>
+                                            <ul>
+                                                <li class="media-mini mt-3">
+                                                    <a href="shop.html">Casual</a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop.html">Formal</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-4 media-list span4 text-left">
+                                            <h5 class="tittle-w3layouts-sub-nav"> T-Shirts </h5>
+                                            <div class="media-mini mt-3">
+                                                <a href="shop.html">
+                                                    <img src="images/g1.jpg" class="img-fluid" alt="">
+                                                </a>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <hr>
+                                </li>
+                            </ul>
+                        </li>
+@*                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact</a>
+                        </li>
+*@                        <li class="nav-item">
+                            <a class="nav-link" href="#signupform" data-toggle="modal" data-dismiss="modal">Signup Here</a>
+                        </li>
+
+                    </ul>
+
+                </div>
+            </nav>
+        </header>
+        <!-- //header -->
+        <!-- banner -->
+        <div class="banner">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                </ol>
+                <div class="carousel-inner" role="listbox">
+                    <div class="carousel-item active">
+                    </div>
+                    <div class="carousel-item item2">
+                        <!-- <div class="carousel-caption text-center">
+                            <h3>Women’s eyewear
+                                <span>Want to Look Your Best?</span>
+                            </h3>
+                            <a href="shop.html" class="btn btn-sm animated-button gibson-three mt-4">Shop Now</a>
+
+                        </div> -->
+                    </div>
+                    <div class="carousel-item item3">
+                        <!-- <div class="carousel-caption text-center">
+                            <h3>Men’s eyewear
+                                <span>Cool summer sale 50% off</span>
+                            </h3>
+                            <a href="shop.html" class="btn btn-sm animated-button gibson-three mt-4">Shop Now</a>
+
+                        </div> -->
+                    </div>
+                    <div class="carousel-item item4">
+                        <!-- <div class="carousel-caption text-center">
+                            <h3>Women’s eyewear
+                                <span>Want to Look Your Best?</span>
+                            </h3>
+                            <a href="shop.html" class="btn btn-sm animated-button gibson-three mt-4">Shop Now</a>
+                        </div> -->
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+            <!--//banner -->
+        </div>
+    </div>
+    <section class="banner-bottom-wthreelayouts py-lg-5 py-3">
+        <div class="container-fluid">
+            <div class="inner-sec-shop px-lg-4 px-3">
+                <h3 class="tittle-w3layouts my-lg-4 my-4">Your Search Items </h3>
+                <div class="row">
+                    <!-- /womens -->
+                    @* By SM on Nov 22, 2020 for Single Item Details *@
+                    <div class="col-md-4 product-men women_two">
+                        <div class="product-googles-info googles">
+                            @foreach (var item in Model)
+                            {
+                                <div class="men-pro-item">
+                                    <div class="men-thumb-item">
+
+                                        @foreach (var p in item.ProductPictureMappings)
+                                        {
+                                            <img src='@Url.Content(p.Picture.FileName)' id="mainimg" data-imagezoom="true"
+                                                 class="img-fluid" alt=" ">
+                                            break;
+                                        }
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    <div class="col-md-8 product-men women_two">
+                        <div>
+                            <table width="100%" cellpadding="5" cellspacing="5">
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            <h4>
+                                                <a href="single.html">@item.Name</a>
+                                            </h4>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="grid-price mt-2">
+                                                <span class="money ">$@item.Price </span>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><hr /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <h6>Sizes:</h6>
+                                            <br />
+                                            <input type="radio" id="Choice1"
+                                                   name="contact" value="Small">
+                                            <label for="contactChoice1">Small</label>
+                                            <input type="radio" id="Choice2"
+                                                   name="contact" value="Medium" checked>
+                                            <label for="contactChoice1">Medium</label>
+                                            <input type="radio" id="Choice3"
+                                                   name="contact" value="Large">
+                                            <label for="contactChoice1">Large</label>
+                                            <input type="radio" id="Choice4"
+                                                   name="contact" value="XLarge">
+                                            <label for="contactChoice1">XLarge</label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="occasion-cart">
+                                                <div class="googles single-item singlepage">
+                                                    @*<a href="@Url.Action("AddCart", "Carts", new {Id=@item.Id, Name=@item.Name, Price=@item.Price})">*@
+                                                    <button type="button" class="googles-cart pgoogles-cart" onclick="location.href='@Url.Action("AddCart", "Carts", new {Id=@item.Id, Name=@item.Name, Price=@item.Price})'">
+                                                        Add to Cart
+                                                    </button>
+                                                    @*</a>*@
+
+                                                </div>
+                                            </div>
+                                        </td>
+
+                                    </tr>
+                                }
+                            </table>
+                            <script>
+                                function changeimage(imgfilename) {
+                                    var image = document.getElementById("mainimg");
+                                    let src = imgfilename;
+                                    image.src = src.replace("~", "");
+                                    document.getElementById("mainimg").focus();
+                                }
+                            </script>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8 product-men women_two">
+                        <br />
+                        @foreach (var item in Model)
+                        {
+                            @foreach (var p in item.ProductPictureMappings)
+                            {
+                                <a href="#" onmouseover="changeimage('@p.Picture.FileName')"><img src='@Url.Content(p.Picture.FileName)' style="height:140px;width:100px;" class="img-fluid" alt=""></a>
+                            }
+                        }
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-12 product-men women_two">
+                        <div class="clearfix"> </div>
+                        <!--/tabs-->
+                        <div class="responsive_tabs">
+                            <div id="horizontalTab">
+                                <ul class="resp-tabs-list">
+                                    <li>Description</li>
+                                    <li>Reviews</li>
+                                </ul>
+                                <div class="resp-tabs-container">
+                                    <!--/tab_one-->
+                                    <div class="tab1">
+
+                                        <div class="single_page">
+                                            @foreach (var item in Model)
+                                            {
+                                                <h6>
+
+                                                    @item.Name
+                                                </h6>
+                                                <p>
+                                                    @item.FullDescription
+                                                </p>
+                                            }
+
+                                        </div>
+                                    </div>
+                                    <!--//tab_one-->
+                                    <div class="tab2">
+
+                                        <div class="single_page">
+                                            <div class="bootstrap-tab-text-grids">
+                                                <div class="add-review">
+                                                    <h4>add a review</h4>
+                                                    <form action="#" method="post">
+                                                        <input class="form-control" type="text" name="Name"
+                                                               placeholder="Enter your email..." required="">
+                                                        <input class="form-control" type="email" name="Email"
+                                                               placeholder="Enter your email..." required="">
+                                                        <textarea name="Message" required=""></textarea>
+                                                        <input type="submit" value="SEND">
+                                                    </form>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <script src="~/js/jquery-3.1.1.slim.min.js"></script>
+
+    </section>
+</body>
+</html>

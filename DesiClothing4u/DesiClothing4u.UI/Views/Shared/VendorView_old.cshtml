@@ -1,0 +1,1431 @@
+﻿@using DesiClothing4u.Common.Models
+@model VendorProduct
+@using System.Web.Helpers;
+@using GridMvc;
+
+@{ ViewData["Title"] = "Vendor Management";
+    //var grid = new WebGrid(source: Model.Picture, canPage: true, rowsPerPage: 15);
+}
+
+@*Author: W3layouts
+    Author URL: http://w3layouts.com
+    License: Creative Commons Attribution 3.0 Unported
+    License URL: http://creativecommons.org/licenses/by/3.0/*@
+
+@{ Layout = null; }
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <title>Desi Clothing</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Desi Clothing" />
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+        function hideme(name) {
+            //var x = document.getElementById(name);
+
+            if (name == 'defaultdiv') {
+                var x = document.getElementById('addproduct');
+                x.style.display = "none";
+                var y = document.getElementById('editproduct');
+                y.style.display = "none";
+                var z = document.getElementById('defaultdiv');
+                z.style.display = "block";
+            }
+            else if (name == 'addproduct') {
+                var x = document.getElementById('defaultdiv');
+                x.style.display = "none";
+                var y = document.getElementById('editproduct');
+                y.style.display = "none";
+                var z = document.getElementById('addproduct');
+                z.style.display = "block";
+            }
+            else if (name == 'editproduct') {
+                var x = document.getElementById('defaultdiv');
+                x.style.display = "none";
+                var y = document.getElementById('editproduct');
+                y.style.display = "block";
+                var z = document.getElementById('addproduct');
+                z.style.display = "none";
+
+            }
+            //if (x.style.display
+            //    === "none") {
+            //    x.style.display = "block";
+            //} else {
+            //    x.style.display =
+            //        "none";
+            //}
+        }
+    </script>
+    <link href="~/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="~/css/login_overlay.css" rel='stylesheet' type='text/css' />
+    <link href="~/css/style6.css" rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="~/css/shop.css" type="text/css" />
+    <link href="~/css/contact.css" rel='stylesheet' type='text/css' />
+    <link href="~/css/style.css" rel='stylesheet' type='text/css' />
+    <link href="~/css/fontawesome-all.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800"
+          rel="stylesheet">
+</head>
+
+<body>
+    <div class="banner-top container-fluid" id="home">
+        <!-- header -->
+        <header>
+            <div class="row">
+                <div class="col-md-3 top-info text-left mt-lg-4">
+                    <h6>Need Help</h6>
+                    <ul>
+                        <li>
+                            <i class="fas fa-phone"></i> Call
+                        </li>
+                        <li class="number-phone mt-3">12345678099</li>
+                    </ul>
+                </div>
+                <div class="col-md-6 logo-w3layouts text-center">
+                    <h1 class="logo-w3layouts">
+                        <a class="navbar-brand" href="index.html">
+                            Desi Clothing
+                        </a>
+                    </h1>
+                </div>
+
+                <div class="col-md-3 top-info-cart text-right mt-lg-4">
+                    <ul class="cart-inner-info">
+                        <li class="button-log">
+                            <a class="btn-open" href="#">
+                                <span class="fa fa-user" aria-hidden="true"></span>
+                            </a>
+                        </li>
+                        <li class="galssescart galssescart2 cart cart box_1">
+                            <form action="#" method="post" class="last">
+                                <input type="hidden" name="cmd" value="_cart">
+                                <input type="hidden" name="display" value="1">
+                                <button class="top_googles_cart" type="submit" name="submit" value="">
+                                    My Cart
+                                    <i class="fas fa-cart-arrow-down"></i>
+                                </button>
+                            </form>
+                        </li>
+                    </ul>
+                    <!---->
+                    <div class="overlay-login text-left">
+                        <button type="button" class="overlay-close1">
+                            <i class="fa fa-times" aria-hidden="true"></i>
+                        </button>
+                        <div class="wrap">
+                            <h5 class="text-center mb-4">Login Now</h5>
+                            <div class="login p-5 bg-dark mx-auto mw-100">
+                                <form action="#" method="post">
+                                    <div class="form-group">
+                                        <label class="mb-2">Email address</label>
+                                        <input type="email" class="form-control" id="exampleInputEmail1"
+                                               aria-describedby="emailHelp" placeholder="" required="">
+                                        <small id="emailHelp" class="form-text text-muted">
+                                            We'll never share your email
+                                            with anyone else.
+                                        </small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="mb-2">Password</label>
+                                        <input type="password" class="form-control" id="exampleInputPassword1"
+                                               placeholder="" required="">
+                                    </div>
+                                    <div class="form-check mb-2">
+                                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary submit mb-4">Sign In</button>
+
+                                </form>
+                            </div>
+                            <!---->
+                        </div>
+                    </div>
+                    <!---->
+                </div>
+            </div>
+            <div class="search">
+                <div class="mobile-nav-button">
+                    <button id="trigger-overlay" type="button">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                <!-- open/close -->
+                <div class="overlay overlay-door">
+                    <button type="button" class="overlay-close">
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    </button>
+                    <form action="#" method="post" class="d-flex">
+                        <input class="form-control" type="search" placeholder="Search here..." required="">
+                        <button type="submit" class="btn btn-primary submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+
+                </div>
+                <!-- open/close -->
+            </div>
+            <div class="row">
+                <div style="text-align: right;">
+                    @if (Model is DesiClothing4u.Common.Models.VendorProduct)
+                    {
+                        Html.RenderPartial("Vendorwelcome");
+                    }
+                    else if (Model is DesiClothing4u.Common.Models.Error)
+                    {
+                        Html.RenderPartial("Error");
+                    }
+                    else
+                    {
+
+                    }
+                </div>
+            </div>
+            <label class="top-log mx-auto"></label>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light top-header mb-2">
+
+                <button class="navbar-toggler mx-auto" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon">
+
+                    </span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav nav-mega mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link ml-lg-0" href="index.html">
+                                Home
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Features
+                            </a>
+                            <ul class="dropdown-menu mega-menu ">
+                                <li>
+                                    <div class="row">
+                                        <div class="col-md-4 media-list span4 text-left">
+                                            <h5 class="tittle-w3layouts-sub"> Tittle goes here </h5>
+                                            <ul>
+                                                <li class="media-mini mt-3">
+                                                    <a href="shop.html">Designer Glasses</a>
+                                                </li>
+                                                <li class="">
+                                                    <a href="shop.html"> Ray-Ban</a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop.html">Prescription Glasses</a>
+                                                </li>
+                                                <li class="mt-3">
+                                                    <h5>View more pages</h5>
+                                                </li>
+                                                <li class="mt-2">
+                                                    <a href="about.html">About</a>
+                                                </li>
+                                                <li>
+                                                    <a href="customer.html">Customers</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-4 media-list span4 text-left">
+                                            <h5 class="tittle-w3layouts-sub"> Tittle goes here </h5>
+                                            <div class="media-mini mt-3">
+                                                <a href="shop.html">
+                                                    <img src="~/images/g2.jpg" class="img-fluid" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 media-list span4 text-left">
+                                            <h5 class="tittle-w3layouts-sub">Tittle goes here </h5>
+                                            <div class="media-mini mt-3">
+                                                <a href="shop.html">
+                                                    <img src="~/images/g3.jpg" class="img-fluid" alt="">
+                                                </a>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <hr>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Shop
+                            </a>
+                            <ul class="dropdown-menu mega-menu ">
+                                <li>
+                                    <div class="row">
+                                        <div class="col-md-4 media-list span4 text-left">
+                                            <h5 class="tittle-w3layouts-sub"> Tittle goes here </h5>
+                                            <ul>
+                                                <li class="media-mini mt-3">
+                                                    <a href="shop.html">Designer Glasses</a>
+                                                </li>
+                                                <li class="">
+                                                    <a href="shop.html"> Ray-Ban</a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop.html">Prescription Glasses</a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop.html">Rx Sunglasses</a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop.html">Contact Lenses</a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop.html">Multifocal Glasses</a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop.html">Kids Glasses</a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop.html">Lightweight Glasses</a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop.html">Sports Glasses</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-4 media-list span4 text-left">
+                                            <h5 class="tittle-w3layouts-sub"> Tittle goes here </h5>
+                                            <ul>
+                                                <li class="media-mini mt-3">
+
+                                                    <a href="shop.html">Brooks Brothers</a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop.html">Persol</a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop.html">Polo Ralph Lauren</a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop.html">Prada</a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop.html">Ray-Ban Jr</a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop.html">Sferoflex</a>
+                                                </li>
+                                            </ul>
+                                            <ul class="sub-in text-left">
+
+                                                <li>
+                                                    <a href="shop.html">Polo Ralph Lauren</a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop.html">Prada</a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop.html">Ray-Ban Jr</a>
+                                                </li>
+                                            </ul>
+
+                                        </div>
+                                        <div class="col-md-4 media-list span4 text-left">
+
+                                            <h5 class="tittle-w3layouts-sub-nav">Tittle goes here </h5>
+                                            <div class="media-mini mt-3">
+                                                <a href="shop.html">
+                                                    <img src="~/images/g1.jpg" class="img-fluid" alt="">
+                                                </a>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <hr>
+                                </li>
+                            </ul>
+
+
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="contact.html">Contact</a>
+                        </li>
+
+                    </ul>
+
+                </div>
+            </nav>
+        </header>
+        <!-- banner -->
+        <div class="banner_inner">
+            <div class="services-breadcrumb">
+                <div class="inner_breadcrumb">
+
+                    <ul class="short">
+                        <li>
+                            <a href="index.html">Home</a>
+                            <i>|</i>
+                        </li>
+                        <li>Vendor</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <!--//banner -->
+    </div>
+    <!--// header_top -->
+    <!-- top Products -->
+    <section class="banner-bottom-wthreelayouts py-lg-5 py-3">
+        <div class="container">
+            <h3 class="tittle-w3layouts text-center my-lg-4 my-4">Vendor Management</h3>
+            <div class="inner_sec">
+                <!-- <p class="sub text-center mb-lg-5 mb-3">We love to discuss your idea</p> -->
+                <div class="row border">
+                    <div class="col-md-2">
+                        <div class="bg-light-gray mb-5">
+                            <div class="container p-0">
+                                <div id="accordion" class="accordion">
+                                    <div class="card mb-0">
+                                        <div class="card-header collapsed" data-toggle="collapse" href="#collapse1">
+                                            <a class="card-title">
+                                                Manage
+                                            </a>
+                                        </div>
+
+                                        <div class="card-header collapsed" data-toggle="collapse" href="#collapse7">
+                                            <a class="card-title" href="#">
+                                                Products
+                                            </a>
+                                        </div>
+                                        <div class="card-header collapsed" data-toggle="collapse" href="#collapse7">
+                                            <a class="card-title" href="#">
+                                                Edit Profile
+                                            </a>
+                                        </div>
+                                        <div class="card-header collapsed" data-toggle="collapse" href="#collapse7">
+                                            <a class="card-title" href="#">
+                                                Orders
+                                            </a>
+                                        </div>
+                                        <div class="card-header collapsed" data-toggle="collapse" href="#collapse7">
+                                            <a class="card-title" href="#">
+                                                Payments
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-10 border border-info">
+                        <div id="defaultdiv" style="width:99%;align-self:center;align-content:center">
+                            <table width="100%">
+                                <tr valign="middle">
+                                    <td width="50%">
+                                        <h4>Products</h4>
+                                    </td>
+                                    <td width="50%" align="right">
+                                        <button type="submit" class="btn btn-primary submit mb-4" onclick="hideme('addproduct');">Add New</button>
+                                    </td>
+                                </tr>
+                            </table>
+                            <div style="width:90%;align-self:center;align-content:center">
+                                @*<img src="~/images/gridview.jpg" />*@
+                                <div class="row">
+                                    <div class="col-md-10">
+                                        <form id="frmProductE" method="post">
+                                            @*<h2>Uploaded File Details</h2>*@
+                                            <div class="form-group">
+                                                <div>
+                                                    @Html.Grid(Model.ProductByVendor).Columns(columns =>
+                                                    {
+                                                    columns.Add(model => model.Id).Titled("RecId");
+                                                    columns.Add(model => model.Name).Titled("Name");
+                                                    columns.Add(model => model.Price).Titled("Price");
+                                                    columns.Add(model => model.FileName).Titled("Image").Filterable(false).Encoded(false)
+                                                     .Sanitized(false)
+                                                     .SetWidth(80).RenderValueAs(model => @<img width="75" height="75" alt="Image" src='@Url.Content(model.FileName)'>);
+columns.Add()
+.Encoded(false)
+.Sanitized(false)
+.SetWidth(80)
+.RenderValueAs(o => @<img src="~/images/editicon.png" width="30" height="30" onclick=GetProduct(@o.Id) />);
+columns.Add()
+.Encoded(false)
+.Sanitized(false)
+.SetWidth(80)
+.RenderValueAs(o => @<img src="~/images/delicon.png" width="30" height="30" onclick=GetProduct(@o.Id) />);
+})
+
+                                                </div>
+                                                <script>
+                                                    function GetProduct(productid) {
+                                                        var VendorId = '@ViewBag.VendorId';
+                                                        var i = 0;
+                                                        //alert("Id " + productid);
+                                                        var x = document.getElementById('editproduct');
+                                                        //var x = document.getElementById('addproduct');
+                                                        x.style.display = "block";
+                                                        var y = document.getElementById('defaultdiv');
+                                                        y.style.display = "none";
+
+                                                          $.ajax({
+                                                             url: 'https://localhost:44356/api/Products/GetProduct',
+                                                             type: 'GET',
+                                                              data: { id: productid },
+                                                              success: function (result) {
+                                                                  $('#ProductIdE').val(productid);
+                                                                  $('#ProductNameE').val(result.name);
+                                                                  $('#ShortDescriptionE').val(result.shortDescription);
+                                                                  $('#FullDescriptionE').val(result.fullDescription);
+                                                                  $('#PriceE').val(result.price);
+                                                                  $.ajax({
+                                                                      url: 'https://localhost:44356/api/Pictures/GetProductPicture',
+                                                                      type: 'GET',
+                                                                      data: { id: productid },
+                                                                      success: function (data) {
+
+                                                                          var trHTML = '';
+                                                                          var path = window.location.origin;
+                                                                          $('#Edpicgrid').html = '';
+                                                                          var trHTML = '<table width="100%" id="tblpic" border="1" style="border-color:maroon"><tr><td colspan="2">Pictures</td></td></tr>';
+                                                                          $.each(data, function (i, item) {
+                                                                              trHTML += '<tr><td><img src=' + path + '/ProductImages/' +  item.seoFilename + ' height="75" width="75"></td><td><a href="#" onClick=delpic('+ item.id +')>Delete</a></td></tr>';
+                                                                          });
+                                                                          trHTML += '</table>';
+                                                                          $('#Edpicgrid').html = trHTML;
+                                                                      }
+                                                                      , error: function (result) {
+                                                                          alert("err " + result.responseText);
+                                                                      }
+                                                                  })
+
+                                                           }
+                                                            , error: function (result) {
+                                                                alert("err " + result.responseText);
+                                                            }
+                                                        })
+                                                    }
+                                                    function delpic(PicId) {
+                                                        alert("PicId " + PicId);
+
+                                                        $.ajax({
+                                                            url: 'https://localhost:44356/api/Pictures/DeletePicture',
+                                                            type: 'POST',
+                                                            //contentType: 'application/x-www-form-urlencoded',
+                                                            data: { PictureId: PicId },
+                                                            success: function (result) {
+                                                                var productid = $('#ProductIdE').val();
+                                                                alert("productid after deletion" + productid);
+                                                                $.ajax({
+                                                                    url: 'https://localhost:44356/api/Pictures/GetProductPicture',
+                                                                    type: 'GET',
+                                                                    data: { id: productid },
+                                                                    success: function (data) {
+                                                                        alert("GetProductPics before");
+                                                                        var trHTML = '';
+                                                                        var path = window.location.origin;
+                                                                        $('#EdpicGrid').html = "";
+                                                                        trHTML = "<table width='70%' id='tblpic' border='1' style='border-color:maroon'><tr><td width='75%'>Pictures</td><td width='25%'>&nbsp;</td></tr>"
+                                                                        $.each(data, function (i, item) {
+                                                                            trHTML += '<tr><td><img src=' + path + '/ProductImages/' + item.seoFilename + ' height="75" width="75"></td><td><a href="#" onClick="delpic(' + item.id + ' )">Delete</a></td></tr>';
+                                                                        });
+                                                                        trHTML += "</table>"
+                                                                        $('#EdpicGrid').html = trHTML;
+                                                                        alert("GetProductPics after");
+
+                                                                    }
+                                                                    , error: function (result) {
+                                                                        alert("err " + result.responseText);
+                                                                    }
+                                                                })
+
+                                                            }
+                                                            , error: function (result) {
+                                                                alert("err " + result.responseText);
+                                                            }
+                                                        })
+
+                                                    }
+                                                </script>
+                                            </div>
+                                        </form>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div id="addproduct" style="display:none">
+                            <div id="default" style="width:99%;align-self:center;align-content:center">
+                                <form id="frmProduct" method="post">
+                                    <table width="100%">
+                                        <tr valign="middle">
+                                            <td width="50%">
+                                                <h4>Add Products</h4>
+                                            </td>
+                                            <td width="50%" align="right">
+                                                <button type="button" class="btn btn-primary submit mb-4" onclick="hideme('defaultdiv')">Cancel</button>
+                                                <button type="button" class="btn btn-primary submit mb-4" onclick="PostProduct()">Save</button>
+                                                @*<button type="button" class="btn btn-primary submit mb-4" onclick="hideme('addproduct');">Cancel</button>*@<button type="button" class="btn btn-primary submit mb-4" onclick="hideme('addproduct');"></button>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <div style="width:90%;align-self:center;align-content:center">
+
+                                        <div class="col-md-6 con-left">
+                                            <div class="form-group" style="text-align:left">
+                                                <label class="my-2">Product Name</label>
+                                                <input class="form-control" type="text" name="ProductName" id="ProductName" placeholder="" required="" style="width:500px;">
+                                            </div>
+                                            <div class="form-group" style="text-align:left">
+                                                <label class="my-2">Short Description</label>
+                                                <textarea rows="4" cols="200" style="width:500px;" name="ShortDescription" Id="ShortDescription" placeholder="" required=""></textarea>
+                                            </div>
+                                            <div class="form-group" style="text-align:left">
+                                                <label>Full Description </label>
+                                                <textarea rows="4" cols="200" style="width:500px;" name="FullDescription" Id="FullDescription" placeholder="" required=""></textarea>
+                                            </div>
+
+                                            <div class="form-group" style="text-align:left">
+                                                <select class="form-control" name="CategoryId" id="CategoryId">
+                                                    <option value="x">Select Category</option>";
+                                                    <option value="3">Men -- Clothing</option>
+                                                    <option value="6">Women -- Clothing -- Kurti</option>
+                                                    <option value="10">Kids -- Boys -- TShirts</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group" style="text-align:left">
+                                                <label class="my-2">Price</label>
+                                                <input class="form-control" type="text" align="right" name="Price" id="Price" placeholder="" required="" style="width:500px;">
+                                            </div>
+                                            <div class="form-group" style="text-align:left">
+                                                <input class="form-control" type="hidden" name="ProductId" id="ProductId" placeholder="" required="" style="width:500px;">
+                                            </div>
+                                            <div>
+                                                <div class="col-md-6 con-left">
+                                                    <div id="picGrid">
+                                                        <table width="100%" id="tblpic" border="1" style="border-color:maroon">
+                                                            <tr>
+                                                                <td width="75%" colspan="2">Pictures</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="75%" colspan="2">No pictures available</td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <script>
+                                    function PostProduct() {
+                                        var ProductName = $('#ProductName').val();
+                                        var ShortDescription = $('#ShortDescription').val();
+                                        var FullDescription = $('#FullDescription').val();
+                                        var Price = $('#Price').val();
+                                        var VendorId = '@ViewBag.VendorId';
+                                        var myproduct = {
+                                            ProductName: ProductName,
+                                            ShortDescription: ShortDescription,
+                                            FullDescription: FullDescription,
+                                            Price: Price,
+                                            VendorId: VendorId
+
+                                        }
+                                          $.ajax({
+                                             url: 'https://localhost:44356/api/Products/PostProduct',
+                                             type: 'POST',
+                                             dataType: 'json',
+                                             contentType: 'application/json; charset=utf-8',
+                                             data: JSON.stringify(myproduct)
+                                              , success: function (result) {
+
+                                                  alert("New Product has been added : " + result.name + " with Id: "+ result.id);
+                                                  $('#ProductId').val(result.id);
+                                                  alert("ProductId : " + $('#ProductId').val());
+                                           }
+                                            , error: function (result) {
+                                                alert("err " + result.responseText);
+                                            }
+                                        })
+                                    }
+                                    </script>
+                                </form>
+                            </div>
+                            @* for pic upload*@
+
+                            <div id="PicUpload" class="border border-warning" style="width:90%;align-self:center;align-content:center">
+                                <form id="frmPic" method="post" enctype="multipart/form-data">
+                                    <div class="col-md-6 con-left">
+                                    </div>
+                                    <span>Select File:</span>
+                                    <input type="file" name="myfiles" id="myfiles" multiple />
+                                    <input type="submit" value="Upload" onclick="PostPicture(myfiles)" />
+                                    <br />
+                                    <span style="color:green">@Html.Raw(ViewBag.Message)</span>
+
+                                    <script>
+                                        function PostPicture(inputId) {
+                                            var grid = $("#PicGrid").val();
+                                            var input = $('#myfiles').get(0).files;
+                                            var formData = new FormData();
+                                            var ProductId = $('#ProductId').val();// for pic prod mapping
+                                            alert("product is " + ProductId);
+                                            for (var i = 0; i <= input.length; i++) {
+                                                formData.append("file", input[i]);
+                                            }
+                                            formData.append("Id", ProductId);
+                                            alert("after formdata");
+                                            $.ajax({
+                                                url: 'https://localhost:44356/api/Pictures/PostPicture',
+                                                type: 'POST',
+                                                dataType: 'json',
+                                                data: formData,
+                                                processData: false,
+                                                contentType: false,
+                                                success: function (result) {
+                                                    alert("New Picture has been added"); //this message coming now
+                                                    alert("seofilename " + result.seoFilename);
+                                                    var trHTML = '';
+                                                    var path = window.location.origin;
+                                                    $('#picGrid').html = "";
+                                                    trHTML = "<table width='70%' id='tblpic' border='1' style='border-color:maroon'><tr><td width='75%'>Pictures</td><td width='25%'>&nbsp;</td></tr>"
+                                                    $.each(data, function (i, item) {
+
+                                                        trHTML += '<tr><td><img src=' + path + '/ProductImages/' + item.seoFilename + ' height="75" width="75"></td><td><a href="#" onClick="delpic(' + item.id + ' )">Delete</a></td></tr>';
+                                                    });
+                                                    trHTML += "</table>"
+                                                    $('#picGrid').html = trHTML;
+
+                                                }
+                                                , error: function (result) {
+                                                    alert("err " + result.responseText);
+
+                                                }
+                                            })
+                                        }
+                                    </script>
+
+                                    @if (Model.Picture != null)
+                                    {
+
+
+                                    }@*<div class="col-md-6 con-left">
+                                            <div class="form-group" style="text-align:left">
+                                                <label class="my-2">Picture</label>
+                                                <label for="file">Upload Image:</label>
+                                                <input type="file" name="file" id="file" /><br><br>
+                                                <input type="submit" value="Upload Image" />
+                                            </div>
+                                        </div>*@<div class="col-md-6 con-left">
+                                        <div class="form-group" style="text-align:left">
+                                            <label class="my-2"></label>
+                                            <label for="file"></label>
+                                            <input type="file" name="file" id="file" /><br><br>
+                                            <input type="submit" value="Upload Image" />
+                                        </div>
+                                    </div>
+                                    @*<div class="col-md-6 con-left">
+                                            <div class="form-group" style="text-align:left">
+                                                <label class="my-2"></label>
+                                                <label for="file"></label>
+                                                <input type="file" name="file" id="file" /><br><br>
+                                                <input type="submit" value="Upload Image" />
+                                            </div>
+                                        </div>*@<div class="col-md-6 con-left">
+                                        <div class="form-group" style="text-align:left">
+                                            <label class="my-2"></label>
+                                            <label for="file"></label>
+                                            <input type="file" name="file" id="file" /><br><br>
+                                            <input type="submit" value="Upload Image" />
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 con-left">
+                                        &nbsp;
+                                    </div>
+                                </form>
+                            </div>
+
+                            @* Below Div is for Products Search *@
+                            @*<div id="SearchProduct" style="width:90%;align-self:center;align-content:center" display:none>
+                                    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#search">Search</button>
+                                    <div id="search" class="collapse">
+                                        <form id="frmSearchPrd" action="Product/SearchPrd" method="post">
+
+                                            <div class="col-md-6 con-left">
+                                                <div class="form-group" style="text-align:left">
+                                                    <label class="my-2">Product name</label>
+                                                    <input class="form-control" type="text" name="Product_name" id="Product_name" placeholder="" required="" style="width:500px;">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 con-left">
+                                                <div class="form-group" style="text-align:left">
+                                                    <label class="my-2">Short description</label>
+                                                    <input class="form-control" type="text" name="Short_desc" id="Short_desc" placeholder="" required="" style="width:500px;">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 con-left">
+                                                <div class="form-group" style="text-align:left">
+                                                    <label class="my-2">Category</label>
+                                                    <select class="form-control" name="CategoryId_search" id="CategoryId_search">
+                                                        <option value="x">Select Category</option>";
+                                                        <option value="Clothing">Clothing</option>
+                                                        <option value="Clothing">Shoes</option>
+                                                        <option value="Clothing">Bags</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 con-right">
+                                                <div class="form-group" style="text-align:left">
+                                                    <label class="my-2">Price</label>
+                                                    <input class="form-control" type="text" name="Product_price" id="Product_price" placeholder="" required="" style="width:500px;">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 con-right">
+                                                <div class="form-group" style="text-align:left">
+                                                    <div class="select">
+                                                        <select class="form-control" name="VendorId" id="VendorId">
+                                                            <option value="0">Vendor </option>
+                                                            <option value="1">Mohtashim</option>
+                                                            <option value="2">Khadi</option>
+                                                            <option value="3">Junaid Jamshed</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 con-right">
+                                                <div class="form-group" style="text-align:left">
+                                                    <div class="select">
+                                                        <select class="form-control" name="ProductTypeId" id="ProductTypeId">
+                                                            <option value="1">Simple </option>
+                                                            <option value="2">Group Product</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </form>
+                                    </div>
+                                </div>*@<div id="SearchProduct" style="width:90%;align-self:center;align-content:center" display:none>
+                                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#search"></button>
+                                <div id="search" class="collapse">
+                                    <form id="frmSearchPrd" action="Product/SearchPrd" method="post">
+
+                                        <div class="col-md-6 con-left">
+                                            <div class="form-group" style="text-align:left">
+                                                <label class="my-2"></label>
+                                                <input class="form-control" type="text" name="Product_name" id="Product_name" placeholder="" required="" style="width:500px;">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 con-left">
+                                            <div class="form-group" style="text-align:left">
+                                                <label class="my-2"></label>
+                                                <input class="form-control" type="text" name="Short_desc" id="Short_desc" placeholder="" required="" style="width:500px;">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 con-left">
+                                            <div class="form-group" style="text-align:left">
+                                                <label class="my-2"></label>
+                                                <select class="form-control" name="CategoryId_search" id="CategoryId_search">
+                                                    <option value="x"></option>
+                                                    <option value="Clothing"></option>
+                                                    <option value="Clothing"></option>
+                                                    <option value="Clothing"></option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 con-right">
+                                            <div class="form-group" style="text-align:left">
+                                                <label class="my-2"></label>
+                                                <input class="form-control" type="text" name="Product_price" id="Product_price" placeholder="" required="" style="width:500px;">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 con-right">
+                                            <div class="form-group" style="text-align:left">
+                                                <div class="select">
+                                                    <select class="form-control" name="VendorId" id="VendorId">
+                                                        <option value="0"></option>
+                                                        <option value="1"></option>
+                                                        <option value="2"></option>
+                                                        <option value="3"></option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 con-right">
+                                            <div class="form-group" style="text-align:left">
+                                                <div class="select">
+                                                    <select class="form-control" name="ProductTypeId" id="ProductTypeId">
+                                                        <option value="1"></option>
+                                                        <option value="2"></option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                            @* Below Div is for Attributes *@
+                            <div id="attribute" style="width:90%;align-self:center;align-content:center" display:none>
+                            </div>
+                        </div>
+                        <div id="editproduct" style="display:none">
+                            <div id="default" style="width:99%;align-self:center;align-content:center">
+                                <form id="frmProductE" method="post">
+                                    <table width="100%">
+                                        <tr valign="middle">
+                                            <td width="50%">
+                                                <h4>Edit Products</h4>
+                                            </td>
+                                            <td width="50%" align="right">
+                                                <button type="button" class="btn btn-primary submit mb-4" onclick="hideme('defaultdiv')">Cancel</button>
+                                                <button type="submit" class="btn btn-primary submit mb-4" onclick="EditProduct()">Save</button>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <div style="width:90%;align-self:center;align-content:center">
+
+                                        <div class="col-md-6 con-left">
+                                            <div class="form-group" style="text-align:left">
+                                                <input type="hidden" id="ProductIdE" />
+                                                <label class="my-2">Product Name</label>
+                                                <input class="form-control" type="text" name="ProductNameE" id="ProductNameE" placeholder="" required="" style="width:500px;">
+                                            </div>
+                                            <div class="form-group" style="text-align:left">
+                                                <label class="my-2">Short Description</label>
+                                                <textarea rows="4" cols="200" style="width:500px;" name="ShortDescriptionE" Id="ShortDescriptionE" placeholder="" required=""></textarea>
+                                            </div>
+                                            <div class="form-group" style="text-align:left">
+                                                <label>Full Description </label>
+                                                <textarea rows="4" cols="200" style="width:500px;" name="FullDescriptionE" Id="FullDescriptionE" placeholder="" required=""></textarea>
+                                            </div>
+
+                                            <div class="form-group" style="text-align:left">
+                                                <select class="form-control" name="CategoryIdE" id="CategoryIdE">
+                                                    <option value="x">Select Category</option>";
+                                                    <option value="3">Men -- Clothing</option>
+                                                    <option value="6">Women -- Clothing -- Kurti</option>
+                                                    <option value="10">Kids -- Boys -- TShirts</option>
+                                                    <option value="12">Both Men & Women--Clothing</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group" style="text-align:left">
+                                                <label class="my-2">Price</label>
+                                                <input class="form-control" type="text" align="right" name="PriceE" id="PriceE" placeholder="" required="" style="width:500px;">
+                                            </div>
+                                            <div class="form-group" style="text-align:left">
+                                                <input class="form-control" type="hidden" name="ProductIdE" id="ProductIdE" placeholder="" required="" style="width:500px;">
+                                            </div>
+                                            <div class="col-md-6 con-left">
+                                                <div id="EdpicGrid">
+                                                    <table width="0%" id="tblpic" border="1" style="border-color:maroon">
+                                                        <tr>
+                                                            <td width="75%"></td>
+                                                            <td width="25%"></td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <script>
+                                                    function EditProduct() {
+                                                        var ProductName = $('#ProductNameE').val();
+                                                        var ShortDescription = $('#ShortDescriptionE').val();
+                                                        var FullDescription = $('#FullDescriptionE').val();
+                                                        var Price = parseInt($('#PriceE').val());
+                                                        var VendorId = parseInt('@ViewBag.VendorId');
+                                                        var ProductId = parseInt(20);
+                                                        var myproduct = {
+                                                            ProductName: ProductName,
+                                                            ShortDescription: ShortDescription,
+                                                            FullDescription: FullDescription,
+                                                            Price: Price,
+                                                            VendorId: VendorId,
+                                                            Id: ProductId
+                                                        }
+                                                            $.ajax({
+                                                                url: 'https://localhost:44356/api/Products/PutProduct',
+                                                                type: 'PUT',
+                                                                dataType: 'json',
+                                                                contentType: 'application/json; charset=utf-8',
+                                                                data: JSON.stringify(myproduct)
+                                                                , success: function (result) {
+
+                                                                    alert("New Product has been added : " + result.name);
+                                                                    alert("New Product has been added : " + result.id);
+                                                                    $('#ProductId').val(result.id);
+                                                                    alert("ProductId : " + $('#ProductId').val());
+                                                            }
+                                                            , error: function (result) {
+                                                                alert("err " + result.responseText);
+                                                            }
+                                                        })
+                                                    }
+                                        </script>
+                                    </div>
+                                </form>
+                                <div id="PicUploadE" class="border border-warning" style="width:90%;align-self:center;align-content:center">
+                                    <form id="frmPicE" method="post" enctype="multipart/form-data">
+
+                                        <span>Select File:</span>
+                                        <input type="file" name="myfilesE" id="myfilesE" multiple />
+                                        <input type="submit" value="Upload" onclick="PostPictureE(myfiles)" />
+                                        <br />
+                                        <span style="color:green">@Html.Raw(ViewBag.Message)</span>
+                                        <script>
+
+                                            function PostPictureE(inputId) {
+                                                var grid = $("#PicGrid").val();
+                                                var input = $('#myfiles').get(0).files;
+                                                var formData = new FormData();
+                                                var ProductId = $('#ProductId').val();// for pic prod mapping
+                                                alert("product is " + ProductId);
+                                                for (var i = 0; i <= input.length; i++) {
+                                                    formData.append("file", input[i]);
+                                                }
+                                                formData.append("Id", ProductId);
+                                                alert("formdata after");
+                                                $.ajax({
+                                                    url: 'https://localhost:44356/api/Pictures/PostPicture',
+                                                    type: 'POST',
+                                                    dataType: 'json',
+                                                    data: formData,
+                                                    processData: false,
+                                                    contentType: false,
+                                                    success: function (result) {
+                                                        alert("New Picture has been added");
+                                                        var trHTML = '';
+                                                        var path = window.location.origin;
+                                                        $('#EdpicGrid').html = "";
+                                                        trHTML = "<table width='70%' id='tblpic' border='1' style='border-color:maroon'><tr><td width='75%'>Pictures</td><td width='25%'>&nbsp;</td></tr>"
+                                                        $.each(data, function (i, item) {
+                                                            trHTML += '<tr><td><img src=' + path + '/ProductImages/' + item.seoFilename + ' height="75" width="75"></td><td><a href="#" onClick="delpic(' + item.id + ' )">Delete</a></td></tr>';
+                                                        });
+                                                        trHTML += "</table>"
+                                                        $('#EdpicGrid').html = trHTML;
+                                                        alert("grid after");
+
+                                                    }
+                                                    , error: function (result) {
+                                                        alert("err " + result.responseText);
+
+                                                    }
+                                                })
+                                            }
+                                        </script>
+                                        <div class="col-md-6 con-left">
+                                            &nbsp;
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            @*Below Div is for Products Search
+                                                <div id="SearchProduct" style="width:90%;align-self:center;align-content:center" display:none>
+                                    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#search">Search</button>
+                                    <div id="search" class="collapse">
+                                        <form id="frmSearchPrd" action="Product/SearchPrd" method="post">
+
+                                            <div class="col-md-6 con-left">
+                                                <div class="form-group" style="text-align:left">
+                                                    <label class="my-2">Product name</label>
+                                                    <input class="form-control" type="text" name="Product_name" id="Product_name" placeholder="" required="" style="width:500px;">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 con-left">
+                                                <div class="form-group" style="text-align:left">
+                                                    <label class="my-2">Short description</label>
+                                                    <input class="form-control" type="text" name="Short_desc" id="Short_desc" placeholder="" required="" style="width:500px;">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 con-left">
+                                                <div class="form-group" style="text-align:left">
+                                                    <label class="my-2">Category</label>
+                                                    <select class="form-control" name="CategoryId_search" id="CategoryId_search">
+                                                        <option value="x">Select Category</option>";
+                                                        <option value="Clothing">Clothing</option>
+                                                        <option value="Clothing">Shoes</option>
+                                                        <option value="Clothing">Bags</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 con-right">
+                                                <div class="form-group" style="text-align:left">
+                                                    <label class="my-2">Price</label>
+                                                    <input class="form-control" type="text" name="Product_price" id="Product_price" placeholder="" required="" style="width:500px;">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 con-right">
+                                                <div class="form-group" style="text-align:left">
+                                                    <div class="select">
+                                                        <select class="form-control" name="VendorId" id="VendorId">
+                                                            <option value="0">Vendor </option>
+                                                            <option value="1">Mohtashim</option>
+                                                            <option value="2">Khadi</option>
+                                                            <option value="3">Junaid Jamshed</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 con-right">
+                                                <div class="form-group" style="text-align:left">
+                                                    <div class="select">
+                                                        <select class="form-control" name="ProductTypeId" id="ProductTypeId">
+                                                            <option value="1">Simple </option>
+                                                            <option value="2">Group Product</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </form>
+                                    </div>
+                                </div>*@
+                            <div id="SearchProduct" style="width:90%;align-self:center;align-content:center" display:none>
+                                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#search"></button>
+                                <div id="search" class="collapse">
+                                    <form id="frmSearchPrd" action="Product/SearchPrd" method="post">
+
+                                        <div class="col-md-6 con-left">
+                                            <div class="form-group" style="text-align:left">
+                                                <label class="my-2"></label>
+                                                <input class="form-control" type="text" name="Product_name" id="Product_name" placeholder="" required="" style="width:500px;">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 con-left">
+                                            <div class="form-group" style="text-align:left">
+                                                <label class="my-2"></label>
+                                                <input class="form-control" type="text" name="Short_desc" id="Short_desc" placeholder="" required="" style="width:500px;">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 con-left">
+                                            <div class="form-group" style="text-align:left">
+                                                <label class="my-2"></label>
+                                                <select class="form-control" name="CategoryId_search" id="CategoryId_search">
+                                                    <option value="x"></option>
+                                                    <option value="Clothing"></option>
+                                                    <option value="Clothing"></option>
+                                                    <option value="Clothing"></option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 con-right">
+                                            <div class="form-group" style="text-align:left">
+                                                <label class="my-2"></label>
+                                                <input class="form-control" type="text" name="Product_price" id="Product_price" placeholder="" required="" style="width:500px;">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 con-right">
+                                            <div class="form-group" style="text-align:left">
+                                                <div class="select">
+                                                    <select class="form-control" name="VendorId" id="VendorId">
+                                                        <option value="0"></option>
+                                                        <option value="1"></option>
+                                                        <option value="2"></option>
+                                                        <option value="3"></option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 con-right">
+                                            <div class="form-group" style="text-align:left">
+                                                <div class="select">
+                                                    <select class="form-control" name="ProductTypeId" id="ProductTypeId">
+                                                        <option value="1"></option>
+                                                        <option value="2"></option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                            @* Below Div is for Attributes *@
+                            <div id="attribute" style="width:90%;align-self:center;align-content:center" display:none>
+                                @*<div class="wrap">
+
+                                    <div class="row contact_left_grid ">*@<div class="wrap">
+
+                                    <div class="row contact_left_grid ">
+                                        @*<div class="col-md-6 con-left">
+                                                <div class="form-group" style="text-align:left">
+                                                    <label class="my-2">Product Name</label>
+                                                    <input class="form-control" type="text" name="ProductName" id="ProductName" placeholder="" required="" style="width:500px;">
+                                                </div>
+                                            </div>*@<div class="col-md-6 con-left">
+                                            <div class="form-group" style="text-align:left">
+                                                <label class="my-2"></label>
+                                                <input class="form-control" type="text" name="ProductName" id="ProductName" placeholder="" required="" style="width:500px;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @*</div>*@
+                </div>
+    </section>
+    <!--footer -->
+    <footer class="py-lg-5 py-4">
+        <div class="container-fluid px-lg-5 px-4">
+            <div class="row footer-top-w3layouts">
+                <div class="col-lg-4 footer-grid-w3ls">
+                    <div class="footer-title">
+                        <h3>About Us</h3>
+                    </div>
+                    <div class="footer-text">
+                        <p>
+                            We develop from simplest presentation websites to full-fledged
+                            web application. Present us with your unique needs.
+                        </p>
+                        <ul class="footer-social text-left mt-lg-4 mt-3">
+
+                            <li class="mx-2">
+                                <a href="#">
+                                    <span class="fab fa-facebook-f"></span>
+                                </a>
+                            </li>
+                            <li class="mx-2">
+                                <a href="#">
+                                    <span class="fab fa-twitter"></span>
+                                </a>
+                            </li>
+                            <li class="mx-2">
+                                <a href="#">
+                                    <span class="fab fa-google-plus-g"></span>
+                                </a>
+                            </li>
+                            <li class="mx-2">
+                                <a href="#">
+                                    <span class="fab fa-linkedin-in"></span>
+                                </a>
+                            </li>
+                            <li class="mx-2">
+                                <a href="#">
+                                    <span class="fas fa-rss"></span>
+                                </a>
+                            </li>
+                            <li class="mx-2">
+                                <a href="#">
+                                    <span class="fab fa-vk"></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 footer-grid-w3ls">
+                    <div class="footer-title">
+                        <h3>Get in touch</h3>
+                    </div>
+                    <div class="contact-info">
+                        <h4>Location :</h4>
+                        <p>0926k 4th block building, king Avenue, New York City.</p>
+                        <div class="phone">
+                            <h4>Contact :</h4>
+                            <p>Phone : +121 098 8907 9987</p>
+                            <p>
+                                Email :
+                                <a href="mailto:info@example.com">info@example.com</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 footer-grid-w3ls">
+                    <div class="footer-title">
+                        <h3>Quick Links</h3>
+                    </div>
+                    <ul class="links">
+                        <li>
+                            <a href="index.html">Home</a>
+                        </li>
+                        <li>
+                            <a href="about.html">About</a>
+                        </li>
+                        <li>
+                            <a href="404.html">Error</a>
+                        </li>
+                        <li>
+                            <a href="shop.html">Shop</a>
+                        </li>
+                        <li>
+                            <a href="contact.html">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- <div class="col-lg-3 footer-grid-w3ls">
+                    <div class="footer-title">
+                        <h3>Sign up for your offers</h3>
+                    </div>
+                    <div class="footer-text">
+                        <p>By subscribing to our mailing list you will always get latest news and updates from us.</p>
+                        <form action="#" method="post">
+                            <input class="form-control" type="email" name="Email" placeholder="Enter your email..."
+                                required="">
+                            <button class="btn1">
+                                <i class="far fa-envelope" aria-hidden="true"></i>
+                            </button>
+                            <div class="clearfix"> </div>
+                        </form>
+                    </div>
+                </div> -->
+            </div>
+            <!-- <div class="copyright-w3layouts mt-4">
+                <p class="copy-right text-center ">&copy; 2018 Goggles. All Rights Reserved | Design by
+                    <a href="http://w3layouts.com/"> W3layouts </a>
+                </p>
+            </div> -->
+        </div>
+    </footer>
+    <!-- //footer -->
+    <!--jQuery-->
+    <script src="~/js/jquery-2.2.3.min.js"></script>
+    <!-- newsletter modal -->
+    <!--search jQuery-->
+    <script src="~/js/modernizr-2.6.2.min.js"></script>
+    <script src="~/js/classie-search.js"></script>
+    <script src="~/js/demo1-search.js"></script>
+    <!--//search jQuery-->
+    <!-- cart-js -->
+    <script src="~/js/minicart.js"></script>
+    @*<script>
+            googles.render();
+
+            googles.cart.on('googles_checkout', function (evt) {
+                var items, len, i;
+
+                if (this.subtotal() > 0) {
+                    items = this.items();
+
+                    for (i = 0, len = items.length; i < len; i++) { }
+                }
+            });
+        </script>*@
+    <script>
+            googles.render();
+
+            googles.cart.on('googles_checkout', function (evt) {
+                var items, len, i;
+
+                if (this.subtotal() > 0) {
+                    items = this.items();
+
+                    for (i = 0, len = items.length; i < len; i++) { }
+                }
+            });
+    </script>
+    <!-- //cart-js -->
+    <script>
+        $(document).ready(function () {
+            $(".button-log a").click(function () {
+                $(".overlay-login").fadeToggle(200);
+                $(this).toggleClass('btn-open').toggleClass('btn-close');
+            });
+        });
+        $('.overlay-close1').on('click', function () {
+            $(".overlay-login").fadeToggle(200);
+            $(".button-log a").toggleClass('btn-open').toggleClass('btn-close');
+            open = false;
+        });
+    </script>
+    <!-- carousel -->
+    <!-- dropdown nav -->
+    <script>
+        $(document).ready(function () {
+            $(".dropdown").hover(
+                function () {
+                    $('.dropdown-menu', this).stop(true, true).slideDown("fast");
+                    $(this).toggleClass('open');
+                },
+                function () {
+                    $('.dropdown-menu', this).stop(true, true).slideUp("fast");
+                    $(this).toggleClass('open');
+                }
+            );
+        });
+    </script>
+    <!-- //dropdown nav -->
+    @*<script src="js/move-top.js"></script>*@
+    <script src="js/move-top.js"></script>
+    @*<script src="js/easing.js"></script>*@
+    <script src="js/easing.js"></script>
+    @*<script>
+            jQuery(document).ready(function ($) {
+                $(".scroll").click(function (event) {
+                    event.preventDefault();
+                    $('html,body').animate({
+                        scrollTop: $(this.hash).offset().top
+                    }, 900);
+                });
+            });
+        </script>*@
+    <script>
+            jQuery(document).ready(function ($) {
+                $(".scroll").click(function (event) {
+                    event.preventDefault();
+                    $('html,body').animate({
+                        scrollTop: $(this.hash).offset().top
+                    }, 900);
+                });
+            });
+    </script>
+    @*<script>
+            $(document).ready(function () {
+                /*
+                                        var defaults = {
+                                              containerID: 'toTop', // fading element id
+                                            containerHoverID: 'toTopHover', // fading element hover id
+                                            scrollSpeed: 1200,
+                                            easingType: 'linear'
+                                         };
+                                        */
+
+                $().UItoTop({
+                    easingType: 'easeOutQuart'
+                });
+
+            });
+        </script>*@
+    <script>
+            $(document).ready(function () {
+                /*
+                                        var defaults = {
+                                              containerID: 'toTop', // fading element id
+                                            containerHoverID: 'toTopHover', // fading element hover id
+                                            scrollSpeed: 1200,
+                                            easingType: 'linear'
+                                         };
+                                        */
+
+                $().UItoTop({
+                    easingType: 'easeOutQuart'
+                });
+
+            });
+    </script>
+    <!--// end-smoth-scrolling -->
+
+
+    <script src="~/js/bootstrap.js"></script>
+    <!-- js file -->
+</body>
+
+</html>
