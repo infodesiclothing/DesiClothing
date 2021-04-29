@@ -115,3 +115,16 @@ E:\Work\DesiClothing\DesiClothing4u\DesiClothing4u.Common\obj\Debug\netcoreapp3.
 E:\Work\DesiClothing\DesiClothing4u\DesiClothing4u.Common\obj\Debug\netcoreapp3.1\staticwebassets\DesiClothing4u.Common.StaticWebAssets.xml
 E:\Work\DesiClothing\DesiClothing4u\DesiClothing4u.Common\obj\Debug\netcoreapp3.1\scopedcss\bundle\DesiClothing4u.Common.styles.css
 E:\Work\DesiClothing\DesiClothing4u\DesiClothing4u.Common\obj\Debug\netcoreapp3.1\DesiClothing4u.Common.RazorTargetAssemblyInfo.cache
+D:\Work\DesiClothingNew\DesiClothing\DesiClothing4u\DesiClothing4u.Common\bin\Debug\netcoreapp3.1\DesiClothing4u.Common.deps.json
+D:\Work\DesiClothingNew\DesiClothing\DesiClothing4u\DesiClothing4u.Common\bin\Debug\netcoreapp3.1\DesiClothing4u.Common.dll
+D:\Work\DesiClothingNew\DesiClothing\DesiClothing4u\DesiClothing4u.Common\bin\Debug\netcoreapp3.1\DesiClothing4u.Common.pdb
+D:\Work\DesiClothingNew\DesiClothing\DesiClothing4u\DesiClothing4u.Common\obj\Debug\netcoreapp3.1\DesiClothing4u.Common.csprojAssemblyReference.cache
+D:\Work\DesiClothingNew\DesiClothing\DesiClothing4u\DesiClothing4u.Common\obj\Debug\netcoreapp3.1\DesiClothing4u.Common.AssemblyInfoInputs.cache
+D:\Work\DesiClothingNew\DesiClothing\DesiClothing4u\DesiClothing4u.Common\obj\Debug\netcoreapp3.1\DesiClothing4u.Common.AssemblyInfo.cs
+D:\Work\DesiClothingNew\DesiClothing\DesiClothing4u\DesiClothing4u.Common\obj\Debug\netcoreapp3.1\DesiClothing4u.Common.csproj.CoreCompileInputs.cache
+D:\Work\DesiClothingNew\DesiClothing\DesiClothing4u\DesiClothing4u.Common\obj\Debug\netcoreapp3.1\staticwebassets\DesiClothing4u.Common.StaticWebAssets.Manifest.cache
+D:\Work\DesiClothingNew\DesiClothing\DesiClothing4u\DesiClothing4u.Common\obj\Debug\netcoreapp3.1\staticwebassets\DesiClothing4u.Common.StaticWebAssets.xml
+D:\Work\DesiClothingNew\DesiClothing\DesiClothing4u\DesiClothing4u.Common\obj\Debug\netcoreapp3.1\scopedcss\bundle\DesiClothing4u.Common.styles.css
+D:\Work\DesiClothingNew\DesiClothing\DesiClothing4u\DesiClothing4u.Common\obj\Debug\netcoreapp3.1\DesiClothing4u.Common.RazorTargetAssemblyInfo.cache
+D:\Work\DesiClothingNew\DesiClothing\DesiClothing4u\DesiClothing4u.Common\obj\Debug\netcoreapp3.1\DesiClothing4u.Common.dll
+D:\Work\DesiClothingNew\DesiClothing\DesiClothing4u\DesiClothing4u.Common\obj\Debug\netcoreapp3.1\DesiClothing4u.Common.pdb

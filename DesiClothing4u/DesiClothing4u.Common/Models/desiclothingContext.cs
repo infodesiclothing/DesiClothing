@@ -1331,7 +1331,7 @@ namespace DesiClothing4u.Common.Models
             });
             modelBuilder.Entity<VendorBankDetail>(entity =>
             {
-                entity.ToTable("VendorBankDetail");
+                entity.ToTable("VendorBankDetails");
                 //dec 23, 2020
                 //entity.HasOne(d => d.Vendor)
                 //    .WithMany(p => p.VendorBankDetail)

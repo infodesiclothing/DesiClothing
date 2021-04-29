@@ -56,7 +56,7 @@ namespace DesiClothing4u.UI.Controllers
                 //Post Address
                 string output = JsonConvert.SerializeObject(address);
                 var data = new StringContent(output, Encoding.UTF8, "application/json");
-                var url = "https://localhost:44356/api/Addresses";
+                var url = "https://localhost:44356/api/Addresses/PostAddress";
                 var client = new HttpClient();
                 var response = await client.PostAsync(url, data);
                 var Address = response.Content.ReadAsStringAsync().Result;
@@ -108,14 +108,31 @@ namespace DesiClothing4u.UI.Controllers
                 var vendorBDetail = response.Content.ReadAsStringAsync().Result;
                 vendorproduct.VendorBankDetail = JsonConvert.DeserializeObject<VendorBankDetail>(vendorBDetail);
                 ViewBag.VendorBankDetails = vendorproduct.VendorBankDetail;
-                TempData["Vendormessage"] = "Vendor created, pls. login to add products"; 
+                TempData["Vendormessage"] = "Vendor created, pls. login to add products";
+
+                //Send Email to vendor
+                var body = "";
+                body = "<table border=0  width ='50%'>";
+                body += "<tr><td align='center' colspan='2'><h1>Vendor Registration</h1></td></tr>";
+                body += "<tr><td align='center' colspan='2'><hr></td></tr>";
+                body += "<tr><td>You have been registered successfuly to <b>DesiClothingOnline.com</b></td><td>&nbsp;</td></tr>";
+                body += "<tr><td align='center' colspan='2'><hr></td></tr>";
+                body += "</table>";
+                Email email = new Email();
+                var tobesend = collection["Email"];
+                
+                email.Send(tobesend, "DesiClothingOnline Registration",body, "");
+               
+
                 //ViewBag.Vendormessage = "Vendor created, pls. login and add products";
                 return RedirectToAction("Index", "Home");
                 //return View("VendorView", vendorproduct);
             }
-            catch
+            catch(Exception e)
             {
-                return View("VendorView");
+                /*TempData["Vendormessage"] = e;*/
+                return RedirectToAction("Index", "Home");
+                /*return View("VendorView");*/
             }
         }
         [HttpPost]
