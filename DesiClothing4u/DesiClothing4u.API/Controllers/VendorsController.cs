@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using DesiClothing4u.Common.Models;
+using Microsoft.Data.SqlClient;
 //using Microsoft.AspNetCore.Cors;
 
 namespace DesiClothing4u.API.Controllers
@@ -64,10 +65,29 @@ namespace DesiClothing4u.API.Controllers
 
             return vendorBankDetail;
         }
-            // PUT: api/Vendors/5
-            // To protect from overposting attacks, enable the specific properties you want to bind to, for
-            // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
-            [HttpPut("{id}")]
+
+        // GET: api/GetVendorBankDetail/5
+        [HttpGet("checkvendoremail")]
+        public async Task<ActionResult<IEnumerable<Vendor>>> checkvendoremail(string VEmail)
+        {
+            try
+            {
+                SqlParameter param1 = new SqlParameter("@Email", VEmail);
+                var vendor = _context.Vendors
+                .FromSqlRaw("Execute dbo.CheckVendorEmail @Email ", param1)
+                .ToList();
+                return vendor;
+            }
+            catch (Exception e)
+            {
+                /*incase of no category*/
+                return null;
+            }
+        }
+        // PUT: api/Vendors/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for
+        // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+        [HttpPut("{id}")]
         public async Task<IActionResult> PutVendor(int id, Vendor vendor)
         {
             if (id != vendor.Id)
