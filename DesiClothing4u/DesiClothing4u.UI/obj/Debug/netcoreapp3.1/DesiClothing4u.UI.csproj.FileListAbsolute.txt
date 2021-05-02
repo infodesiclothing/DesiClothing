@@ -2014,7 +2014,6 @@ D:\Work\DesiClothingNew\DesiClothing\DesiClothing4u\DesiClothing4u.UI\obj\Debug\
 D:\Work\DesiClothingNew\DesiClothing\DesiClothing4u\DesiClothing4u.UI\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Welcome.cshtml.g.cs
 D:\Work\DesiClothingNew\DesiClothing\DesiClothing4u\DesiClothing4u.UI\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
 D:\Work\DesiClothingNew\DesiClothing\DesiClothing4u\DesiClothing4u.UI\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
-D:\Work\DesiClothingNew\DesiClothing\DesiClothing4u\DesiClothing4u.UI\obj\Debug\netcoreapp3.1\Razor\Views\VendorRegister.cshtml.g.cs
 D:\Work\DesiClothingNew\DesiClothing\DesiClothing4u\DesiClothing4u.UI\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
 D:\Work\DesiClothingNew\DesiClothing\DesiClothing4u\DesiClothing4u.UI\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
 D:\Work\DesiClothingNew\DesiClothing\DesiClothing4u\DesiClothing4u.UI\obj\Debug\netcoreapp3.1\DesiClothing4u.UI.RazorTargetAssemblyInfo.cache
@@ -2024,3 +2023,4 @@ D:\Work\DesiClothingNew\DesiClothing\DesiClothing4u\DesiClothing4u.UI\obj\Debug\
 D:\Work\DesiClothingNew\DesiClothing\DesiClothing4u\DesiClothing4u.UI\obj\Debug\netcoreapp3.1\DesiClothing4u.UI.dll
 D:\Work\DesiClothingNew\DesiClothing\DesiClothing4u\DesiClothing4u.UI\obj\Debug\netcoreapp3.1\DesiClothing4u.UI.pdb
 D:\Work\DesiClothingNew\DesiClothing\DesiClothing4u\DesiClothing4u.UI\obj\Debug\netcoreapp3.1\DesiClothing4u.UI.genruntimeconfig.cache
+D:\Work\DesiClothingNew\DesiClothing\DesiClothing4u\DesiClothing4u.UI\obj\Debug\netcoreapp3.1\Razor\Views\Shared\VendorRegister.cshtml.g.cs

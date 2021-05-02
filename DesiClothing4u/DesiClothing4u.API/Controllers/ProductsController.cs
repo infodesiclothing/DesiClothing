@@ -305,5 +305,27 @@ namespace DesiClothing4u.API.Controllers
                             .ToListAsync();
             return product;
         }
+
+
+        [HttpGet("GetProductsByCat")]
+        public IEnumerable<productExt> GetProductsByCat(int CatId)
+        {
+            /*Added by Mohtashim on Dec 21, 2020*/
+            try
+            {
+                int CategoryId = CatId;
+                var product = _context.productExts
+                .FromSqlRaw("Execute dbo.GetProductByCategoryId {0}", CategoryId)
+                .ToList();
+
+                return product;
+            }
+            catch (Exception e)
+            {
+                /*if the vendor dont have any product*/
+                return null;
+            }
+        }
+
     }
 }

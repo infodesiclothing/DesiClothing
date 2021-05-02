@@ -18,7 +18,9 @@ namespace DesiClothing4u.UI.Controllers
         // GET: VendorController
         public ActionResult Index()
         {
-            return View("~/Views/VendorRegister.cshtml");
+            return View("~/Views/Shared/VendorRegister.cshtml");
+            //return View("~/Views/Shared/VendorRegView.cshtml");
+
             //return View("VendorView");
         }
 

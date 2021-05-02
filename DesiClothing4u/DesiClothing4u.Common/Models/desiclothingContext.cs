@@ -89,6 +89,8 @@ namespace DesiClothing4u.Common.Models
         public virtual DbSet<PollVotingRecord> PollVotingRecords { get; set; }
         public virtual DbSet<PredefinedProductAttributeValue> PredefinedProductAttributeValues { get; set; }
         public virtual DbSet<Product> Products { get; set; }
+
+        public virtual DbSet<productExt> productExts { get; set; }
         public virtual DbSet<ProductAttribute> ProductAttributes { get; set; }
         public virtual DbSet<ProductAttributeCombination> ProductAttributeCombinations { get; set; }
         public virtual DbSet<ProductAttributeValue> ProductAttributeValues { get; set; }
