@@ -2024,3 +2024,5 @@ D:\Work\DesiClothingNew\DesiClothing\DesiClothing4u\DesiClothing4u.UI\obj\Debug\
 D:\Work\DesiClothingNew\DesiClothing\DesiClothing4u\DesiClothing4u.UI\obj\Debug\netcoreapp3.1\DesiClothing4u.UI.pdb
 D:\Work\DesiClothingNew\DesiClothing\DesiClothing4u\DesiClothing4u.UI\obj\Debug\netcoreapp3.1\DesiClothing4u.UI.genruntimeconfig.cache
 D:\Work\DesiClothingNew\DesiClothing\DesiClothing4u\DesiClothing4u.UI\obj\Debug\netcoreapp3.1\Razor\Views\Shared\VendorRegister.cshtml.g.cs
+D:\Work\DesiClothingNew\DesiClothing\DesiClothing4u\DesiClothing4u.UI\obj\Debug\netcoreapp3.1\Razor\Views\Menu\Index.cshtml.g.cs
+D:\Work\DesiClothingNew\DesiClothing\DesiClothing4u\DesiClothing4u.UI\obj\Debug\netcoreapp3.1\Razor\Views\Menu\ProductsByCat.cshtml.g.cs

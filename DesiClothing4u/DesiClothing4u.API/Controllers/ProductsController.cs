@@ -314,11 +314,11 @@ namespace DesiClothing4u.API.Controllers
             try
             {
                 int CategoryId = CatId;
-                var product = _context.productExts
-                .FromSqlRaw("Execute dbo.GetProductByCategoryId {0}", CategoryId)
+                var productExt = _context.productExts
+                .FromSqlRaw("Execute dbo.GetProductByCategoryId {0}", CatId)
                 .ToList();
 
-                return product;
+                return productExt;
             }
             catch (Exception e)
             {
