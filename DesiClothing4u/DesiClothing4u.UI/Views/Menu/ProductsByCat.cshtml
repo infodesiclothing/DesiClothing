@@ -45,11 +45,31 @@
                     <div class="wrap">
                         <h5 class="text-center mb-4">Login Now</h5>
                         <div class="login p-5 bg-dark mx-auto mw-100">
-                            <form action="#" method="post">
+                            @* Added by Mohtashim on Nov 29, 2020 *@
+                            <script>
+                                function changeAction() {
+                                    var frm = document.getElementById('frmLogin') || null;
+                                    var chk = document.getElementById('loginasvendor') || null;
+                                    if (frm) {
+                                        if (chk.checked == true) {
+                                            frm.action = '/Vendor/CheckVendorLogin';
+                                        }
+                                        else {
+                                            frm.action = '/Home/CheckCustomerLogin'
+                                        }
+                                    }
+                                }
+
+                            </script>
+                            @*<div class="wrap">
+                <h5 class="text-center mb-4">Login Now</h5>
+                <div class="login p-5 bg-dark mx-auto mw-100">*@
+
+                            <form action="/" id="frmLogin" method="post">
                                 <div class="form-group">
                                     <label class="mb-2">Email address</label>
                                     <input type="email" class="form-control" id="exampleInputEmail1"
-                                           aria-describedby="emailHelp" placeholder="" required="">
+                                           name="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" required="">
                                     <small id="emailHelp" class="form-text text-muted">
                                         We'll never share your email
                                         with anyone else.
@@ -58,17 +78,26 @@
                                 <div class="form-group">
                                     <label class="mb-2">Password</label>
                                     <input type="password" class="form-control" id="exampleInputPassword1"
-                                           placeholder="" required="">
+                                           name="exampleInputPassword1" placeholder="" required="">
+                                </div>
+                                @*                                <div class="form-check mb-2">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                    </div>
+                                *@
+                                <button type="submit" class="btn btn-primary submit mb-4" onclick="changeAction();">Sign In</button>
+
+                                <div>
+                                    <p>Don't have an account? <a href="#signupform" data-toggle="modal" data-dismiss="modal">Signup Here</a></p></br>
                                 </div>
                                 <div class="form-check mb-2">
-                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                                    <input type="checkbox" class="form-check-input" id="loginasvendor">
+                                    <label class="form-check-label" for="loginasvendor">Login as Vendor</label>
                                 </div>
-                                <button type="submit" class="btn btn-primary submit mb-4">Sign In</button>
+
 
                             </form>
                         </div>
-                        <!---->
                     </div>
                 </div>
             </div>
@@ -107,14 +136,19 @@
                                         <h5 class="tittle-w3layouts-sub"> Clothing </h5>
                                         <ul>
                                             <li class="media-mini mt-3">
-                                                <a href="shop.html">Kurti</a>
+                                                <a href="@Url.Action("Index", "Menu" , new { CatId = 3 })">Kurti</a>
                                             </li>
                                             <li class="">
-                                                <a href="shop.html"> Shoes</a>
+                                                <a href="@Url.Action("Index", "Menu" , new { CatId = 7 })">Shoes</a>
                                             </li>
+                                            <li class="">
+                                                <a href="@Url.Action("Index", "Menu" , new { CatId = 18 })">Accessories</a>
+                                            </li>
+
                                             <!-- <li>
-                                                <a href="shop.html">Prescription Glasses</a>
-                                            </li> -->
+
+        <a href="shop.html">Prescription Glasses</a>
+    </li> -->
                                             <li class="mt-3">
                                                 <h5>View more pages</h5>
                                             </li>
@@ -160,11 +194,15 @@
                                         <h5 class="tittle-w3layouts-sub"> Clothing </h5>
                                         <ul>
                                             <li class="media-mini mt-3">
-                                                <a href="shop.html">T-Shirts</a>
+                                                <a href="@Url.Action("Index", "Menu" , new { CatId = 5 })">T-Shirts</a>
                                             </li>
                                             <li class="">
-                                                <a href="shop.html">Shirts</a>
+                                                <a href="@Url.Action("Index", "Menu" , new { CatId = 10 })">Shirts</a>
                                             </li>
+                                            <li class="">
+                                                <a href="@Url.Action("Index", "Menu" , new { CatId = 17 })">Accessories</a>
+                                            </li>
+
                                         </ul>
                                     </div>
                                     <div class="col-md-4 media-list span4 text-left">
@@ -229,73 +267,88 @@
 
     <!-- /womens -->
     @* By SM on Nov 13, 2020 for Featured Products *@
-    @foreach (var i in Model.ProductExts)
+    @if (Model.ProductExts.Any())
     {
-        <div class="col-md-3 product-men women_two">
+        @foreach (var i in Model.ProductExts)
+        {
+            <div class="col-md-3 product-men women_two">
 
-            <div class="product-googles-info googles">
-                <div class="men-pro-item">
-                    <div class="men-thumb-item">
-                       <img src='@Url.Content(i.SeoFilename)' class="img-fluid" alt="">
-                        <div class="men-cart-pro">
-                            <div class="inner-men-cart-pro">
-                                @*<a href="single.html" class="link-product-add-cart">Quick View</a>*@
-                                <a href="@Url.Action("Details", "Product", new {id=i.Id})" class="link-product-add-cart">Quick View</a>
-                            </div>
-                        </div>
-                        <span class="product-new-top">New</span>
-                    </div>
-                    <div class="item-info-product">
-                        <div class="info-product-price">
-                            <div class="grid_meta">
-                                <div class="product_price">
-                                    <h4>
-                                        <a href="single.html">@i.Name</a>
-                                    </h4>
-
-                                    <div class="grid-price mt-2">
-                                        <span class="money ">$@i.Price </span>
-                                    </div>
-
+                <div class="product-googles-info googles">
+                    <div class="men-pro-item">
+                        <div class="men-thumb-item">
+                            <img src='@Url.Content(i.SeoFilename)' class="img-fluid" alt="">
+                            <div class="men-cart-pro">
+                                <div class="inner-men-cart-pro">
+                                    @*<a href="single.html" class="link-product-add-cart">Quick View</a>*@
+                                    <a href="@Url.Action("Details", "Product", new { id = i.Id })" class="link-product-add-cart">Quick View</a>
                                 </div>
-                                <ul class="stars">
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                                        </a>
-                                    </li>
-                                </ul>
                             </div>
-                            <div class="googles single-item hvr-outline-out">
-                                <a href="@Url.Action("AddCart", "Carts", new {Id=@i.Id, Name=@i.Name, Price=@i.Price})">
-                                    <i class="fa fa-shopping-cart" style="font-size:20px;color:black" aria-hidden="true"></i>
-                                </a>
-                            </div>
+                            <span class="product-new-top">New</span>
                         </div>
-                        <div class="clearfix"></div>
+                        <div class="item-info-product">
+                            <div class="info-product-price">
+                                <div class="grid_meta">
+                                    <div class="product_price">
+                                        <h4>
+                                            <a href="single.html">@i.Name</a>
+                                        </h4>
+
+                                        <div class="grid-price mt-2">
+                                            <span class="money ">$@i.Price </span>
+                                        </div>
+
+                                    </div>
+                                    <ul class="stars">
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="googles single-item hvr-outline-out">
+                                    <a href="@Url.Action("AddCart", "Carts", new { Id = @i.Id, Name = @i.Name, Price = @i.Price })">
+                                        <i class="fa fa-shopping-cart" style="font-size:20px;color:black" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
                     </div>
                 </div>
             </div>
+        }
+    }
+    else
+    {
+@*        <div class="col-md-12 border  border-danger" style="align-content:center;vertical-align:middle; height:15px">
+                    No items found in this category
+        </div>
+*@        <div style="align-content:center;vertical-align:middle; height:100px">
+            <br>
+            <h3><p class="text-info">No items found in this category</p></h3>
+            <br>
+            <br>
         </div>
     }
 </div>

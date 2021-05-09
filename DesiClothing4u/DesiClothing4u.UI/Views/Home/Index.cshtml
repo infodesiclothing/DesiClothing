@@ -14,7 +14,7 @@
             <div class="col-md-3 top-info text-left mt-lg-4">
                 <h6>&nbsp;</h6>
             </div>
-            <div class="col-md-6 logo-w3layouts text-center">
+            <div class="col-md-4 logo-w3layouts text-center">
                 <h1 class="logo-w3layouts">
                     <a class="navbar-brand" href="@Url.Action("Index", "Home")">
                         Desi Clothing
@@ -22,24 +22,19 @@
                 </h1>
             </div>
 
-            <div class="col-md-3 top-info-cart text-right mt-lg-4">
+            <div class="col-md-5 top-info-cart text-right mt-lg-4">
                 <ul class="cart-inner-info">
+                    <li>
+                        <a class="btn-open" href="#searchform" data-toggle="modal" data-dismiss="modal">
+                            <span class="fa fa-search" aria-hidden="true"></span>
+                        </a>
+                    </li>
                     <li class="button-log">
                         <a class="btn-open" href="#">
                             <span class="fa fa-user" aria-hidden="true"></span>
                         </a>
                     </li>
                     <li class="galssescart galssescart2 cart cart box_1">
-                        @* Commented by SM on Dec 16, 2020 *@
-                        @*<form action="#" method="post" class="last">
-                            <input type="hidden" name="cmd" value="_cart">
-                            <input type="hidden" name="display" value="1">
-                            <button class="top_googles_cart" type="submit" name="submit" value="">
-                                My Cart
-                                <i class="fas fa-cart-arrow-down"></i>
-                            </button>
-                        </form>*@
-
                         <a class="fa fa-shopping-cart" style="font-size:20px;color:black" aria-hidden="true" href="@Url.Action("MyCart", "Carts", new { CustId = ViewBag.UserName})">My Cart </a>
                     </li>
                 </ul>
@@ -68,47 +63,10 @@
 
                             </script>
                             @*<div class="wrap">
-                            <h5 class="text-center mb-4">Login Now</h5>
-                            <div class="login p-5 bg-dark mx-auto mw-100">*@
+                    <h5 class="text-center mb-4">Login Now</h5>
+                    <div class="login p-5 bg-dark mx-auto mw-100">*@
 
-                        <form action="/" id="frmLogin" method="post">
-                            <div class="form-group">
-                                <label class="mb-2">Email address</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1"
-                                       name="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" required="">
-                                <small id="emailHelp" class="form-text text-muted">
-                                    We'll never share your email
-                                    with anyone else.
-                                </small>
-                            </div>
-                            <div class="form-group">
-                                <label class="mb-2">Password</label>
-                                <input type="password" class="form-control" id="exampleInputPassword1"
-                                       name="exampleInputPassword1" placeholder="" required="">
-                            </div>
-                            @*                                <div class="form-check mb-2">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Check me out</label>
-        </div>
-                            *@
-                            <button type="submit" class="btn btn-primary submit mb-4" onclick="changeAction();">Sign In</button>
-
-                            <div>
-                                <p>Don't have an account? <a href="#signupform" data-toggle="modal" data-dismiss="modal">Signup Here</a></p></br>
-                            </div>
-                            <div class="form-check mb-2">
-                                <input type="checkbox" class="form-check-input" id="loginasvendor">
-                                <label class="form-check-label" for="loginasvendor">Login as Vendor</label>
-                            </div>
-
-
-                        </form>
-                            @* CHanes by Mohtashim ends here *@
-                            @*<form action="~/Vendor/CheckVendorLogin" id="frmLogin" method="post">
-                                <div class="form-check mb-2">
-                                    <input type="checkbox" class="form-check-input" id="loginasvendor">
-                                    <label class="form-check-label" for="loginasvendor">Login as Vendor</label>
-                                </div>
+                            <form action="/" id="frmLogin" method="post">
                                 <div class="form-group">
                                     <label class="mb-2">Email address</label>
                                     <input type="email" class="form-control" id="exampleInputEmail1"
@@ -123,16 +81,53 @@
                                     <input type="password" class="form-control" id="exampleInputPassword1"
                                            name="exampleInputPassword1" placeholder="" required="">
                                 </div>
-                                <div class="form-check mb-2">
-                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                                </div>
-                                <button type="submit" class="btn btn-primary submit mb-4">Sign In</button>
+                                @*                                <div class="form-check mb-2">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                        </div>
+                                *@
+                                <button type="submit" class="btn btn-primary submit mb-4" onclick="changeAction();">Sign In</button>
+
                                 <div>
                                     <p>Don't have an account? <a href="#signupform" data-toggle="modal" data-dismiss="modal">Signup Here</a></p></br>
                                 </div>
+                                <div class="form-check mb-2">
+                                    <input type="checkbox" class="form-check-input" id="loginasvendor">
+                                    <label class="form-check-label" for="loginasvendor">Login as Vendor</label>
+                                </div>
 
-                            </form>*@
+
+                            </form>
+                            @* CHanes by Mohtashim ends here *@
+                            @*<form action="~/Vendor/CheckVendorLogin" id="frmLogin" method="post">
+                        <div class="form-check mb-2">
+                            <input type="checkbox" class="form-check-input" id="loginasvendor">
+                            <label class="form-check-label" for="loginasvendor">Login as Vendor</label>
+                        </div>
+                        <div class="form-group">
+                            <label class="mb-2">Email address</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1"
+                                   name="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" required="">
+                            <small id="emailHelp" class="form-text text-muted">
+                                We'll never share your email
+                                with anyone else.
+                            </small>
+                        </div>
+                        <div class="form-group">
+                            <label class="mb-2">Password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1"
+                                   name="exampleInputPassword1" placeholder="" required="">
+                        </div>
+                        <div class="form-check mb-2">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary submit mb-4">Sign In</button>
+                        <div>
+                            <p>Don't have an account? <a href="#signupform" data-toggle="modal" data-dismiss="modal">Signup Here</a></p></br>
+                        </div>
+
+                    </form>*@
                         </div>
                         <!---->
                     </div>
@@ -270,17 +265,95 @@
                     </div>
                 </div>
                 <!--/Register-Form -->
-                <!---->
+                <!--Search-Form -->
+                <div class="modal fade " id="searchform" tabindex="-2" role="dialog" aria-labelledby="searchform">
+                    <div class="modal-dialog overlay-register" role="document" style="max-width: 50%;">
+                        <div class="modal-content bg-dark">
+                            <button type="button" class="overlay-close2" data-dismiss="modal">
+                                <i class="fa fa-times" aria-hidden="true"></i>
+                            </button>
+                            <div class="wrap">
+                                <h5 class="text-center mb-4">Search</h5>
+                                <form id="frmsearch" method="post">
+                                    <div class="row contact_left_grid ">
+                                        <div class="col-md-12 con-left">
+                                            <div class="form-group" style="text-align:left">
+                                                <label class="text-white">Price from</label>
+                                                <input class="form-control" type="text" name="pricefrom" id="pricefrom" placeholder="" required="">
+                                            </div>
+                                                <div class="form-group" style="text-align:left">
+                                                    <label class="text-white">To</label>
+                                                    <input class="form-control" type="text" name="priceto" id="priceto" placeholder="" required="">
+                                                </div>
+                                            </div>
+                                        <div class="col-md-6 con-left">
+                                            <div class="form-group" style="text-align:left">
+                                                <label class="text-white">Name</label>
+                                                <input class="form-control" type="text" name="name" placeholder="" required="" width="200px">
+                                            </div>
+                                        </div>
+                                        </div>
+                                    <div class="modal-footer">
+                                        <input class="form-control" type="submit" value="Search" onclick="Search()">
+                                    </div>
+                                    <script>
+                                        function Search() {
+                                            var FirstName1 = $('#FirstName').val();
+                                            var LastName1 = $('#LastName').val();
+                                            var Password1 = $('#Password1').val();
+                                            var Email1 = $('#Email').val();
+                                            var StreetAddress11 = $('#Streetaddress1').val();
+                                            var StreetAddress21 = $('#Streetaddress2').val();
+                                            var Country1 = $('#Country').val();
+                                            var City1 = $('#City').val();
+                                            var Phoneno1 = $('#Phoneno').val();
+                                            var ZipCode1 = $('#Zipcode').val();
+                                            var MyCustomer = {
+                                                FirstName: FirstName1,
+                                                LastName: LastName1,
+                                                Password: Password1,
+                                                Email: Email1,
+                                                StreetAddress1: StreetAddress11,
+                                                Country: Country1,
+                                                City: City1,
+                                                Phoneno: Phoneno1,
+                                                ZipCode: ZipCode1,
+                                                StreetAddress2: StreetAddress21
+                                            }
+                                            alert(MyCustomer);
+                                            $.ajax({
+                                                url: 'https://localhost:44328/Home/CreateCustomer',
+                                                type: 'POST',
+                                                dataType: 'json',
+                                                contentType: 'application/json; charset=utf-8',
+                                                data: JSON.stringify(MyCustomer)
+                                                , success: function (result) {
+                                                    alert("Registered: ");
+                                                }
+                                                , error: function (result) {
+                                                    alert("err " + result.responseText);
+                                                }
+                                            })
+                                        }
+                                    </script>
+                                    }
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--/Register-Form -->
+
+
             </div>
         </div>
-        <!--<div class="search">
-    <div class="mobile-nav-button">
+        <!--<div class="search">-->
+@*    <div class="mobile-nav-button">
         <button id="trigger-overlay" type="button">
             <i class="fas fa-search"></i>
         </button>
-    </div>-->
-        <!-- open/close -->
-        <!--<div class="overlay overlay-door">
+    </div>
+*@        <!--<div class="overlay overlay-door">
         <button type="button" class="overlay-close">
             <i class="fa fa-times" aria-hidden="true"></i>
         </button>
@@ -291,9 +364,9 @@
             </button>
         </form>
 
-    </div>-->
-        <!-- open/close -->
-        <!--</div>-->
+    </div>
+        
+        </div>-->
         <div class="row">
 
             <div id="welcome" @*style="display:none"*@>
@@ -386,11 +459,15 @@
                                                         <a href="@Url.Action("Index", "Menu" , new { CatId = 3 })">Kurti</a>
                                                     </li>
                                                     <li class="">
-                                                        <a href="shop.html"> Shoes</a>
+                                                        <a href="@Url.Action("Index", "Menu" , new { CatId = 7 })">Shoes</a>
                                                     </li>
+                                                    <li class="">
+                                                        <a href="@Url.Action("Index", "Menu" , new { CatId = 17 })">Accessories</a>
+                                                    </li>
+
                                                     <!-- <li>
-                                                    <a href="shop.html">Prescription Glasses</a>
-                                                </li> -->
+        <a href="shop.html">Prescription Glasses</a>
+    </li> -->
                                                     <li class="mt-3">
                                                         <h5>View more pages</h5>
                                                     </li>
@@ -436,32 +513,14 @@
                                                 <h5 class="tittle-w3layouts-sub"> Clothing </h5>
                                                 <ul>
                                                     <li class="media-mini mt-3">
-                                                        <a href="shop.html">T-Shirts</a>
+                                                        <a href="@Url.Action("Index", "Menu" , new { CatId = 5 })">T-Shirts</a>
                                                     </li>
                                                     <li class="">
-                                                        <a href="shop.html">Shirts</a>
+                                                        <a href="@Url.Action("Index", "Menu" , new { CatId = 10 })">Shirts</a>
                                                     </li>
-                                                    <!-- <li>
-                                                    <a href="shop.html">Prescription Glasses</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop.html">Rx Sunglasses</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop.html">Contact Lenses</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop.html">Multifocal Glasses</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop.html">Kids Glasses</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop.html">Lightweight Glasses</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop.html">Sports Glasses</a>
-                                                </li> -->
+                                                    <li class="">
+                                                        <a href="@Url.Action("Index", "Menu" , new { CatId = 17 })">Accessories</a>
+                                                    </li>
                                                 </ul>
                                             </div>
                                             <div class="col-md-4 media-list span4 text-left">
@@ -601,9 +660,9 @@
                             <div class="men-pro-item">
                                 <div class="men-thumb-item">
                                     @*@foreach (var p in i.ProductPictureMappings)
-                                        {
-                                            <img src='@Url.Content(p.Picture.FileName )' class="img-fluid" alt="">
-                                        }*@
+                                {
+                                    <img src='@Url.Content(p.Picture.FileName )' class="img-fluid" alt="">
+                                }*@
                                     @foreach (var p in i.ProductPictureMappings)
                                     {
                                         int len = i.ProductPictureMappings.Count;
@@ -667,14 +726,14 @@
                                         </div>
                                         <div class="googles single-item hvr-outline-out">
                                             @*<form action="#" method="post">
-                                                <input type="hidden" name="cmd" value="_cart">
-                                                <input type="hidden" name="add" value="1">
-                                                <input type="hidden" name="googles_item" value=@i.Name>
-                                                <input type="hidden" name="amount" value=@i.Price>
-                                                <button type="submit" class="googles-cart pgoogles-cart">
-                                                    <i class="fas fa-cart-plus"></i>
-                                                </button>
-                                            </form>*@
+                                            <input type="hidden" name="cmd" value="_cart">
+                                            <input type="hidden" name="add" value="1">
+                                            <input type="hidden" name="googles_item" value=@i.Name>
+                                            <input type="hidden" name="amount" value=@i.Price>
+                                            <button type="submit" class="googles-cart pgoogles-cart">
+                                                <i class="fas fa-cart-plus"></i>
+                                            </button>
+                                        </form>*@
                                             <a href="@Url.Action("AddCart", "Carts", new {@Id=i.Id, Name=@i.Name, Price=@i.Price})">
                                                 <i class="fa fa-shopping-cart" style="font-size:20px;color:black" aria-hidden="true"></i>
                                             </a>
@@ -704,78 +763,78 @@
             </div>
             <div class="row">
 
-                    <!-- /womens -->
-                    @* By SM on Nov 13, 2020 for Featured Products *@
-                    @foreach (var i in Model.FeaturedProduct)
-                    {
-                        <div class="col-md-3 product-men women_two">
+                <!-- /womens -->
+                @* By SM on Nov 13, 2020 for Featured Products *@
+                @foreach (var i in Model.FeaturedProduct)
+                {
+                    <div class="col-md-3 product-men women_two">
 
-                            <div class="product-googles-info googles">
-                                <div class="men-pro-item">
-                                    <div class="men-thumb-item">
-                                        @foreach (var p in i.ProductPictureMappings)
+                        <div class="product-googles-info googles">
+                            <div class="men-pro-item">
+                                <div class="men-thumb-item">
+                                    @foreach (var p in i.ProductPictureMappings)
+                                    {
+                                        int len = i.ProductPictureMappings.Count;
+
+                                        for (int j = 0; j < len;)
                                         {
-                                            int len = i.ProductPictureMappings.Count;
-
-                                            for (int j = 0; j < len;)
-                                            {
-                                                <img src='@Url.Content(p.Picture.FileName )' class="img-fluid" alt="">j = len;
-                                                break;
-
-                                            }
+                                            <img src='@Url.Content(p.Picture.FileName )' class="img-fluid" alt="">j = len;
                                             break;
+
                                         }
-                                        <div class="men-cart-pro">
-                                            <div class="inner-men-cart-pro">
-                                                @*<a href="single.html" class="link-product-add-cart">Quick View</a>*@
-                                                <a href="@Url.Action("Details", "Product", new {id=i.Id})" class="link-product-add-cart">Quick View</a>
-                                            </div>
+                                        break;
+                                    }
+                                    <div class="men-cart-pro">
+                                        <div class="inner-men-cart-pro">
+                                            @*<a href="single.html" class="link-product-add-cart">Quick View</a>*@
+                                            <a href="@Url.Action("Details", "Product", new {id=i.Id})" class="link-product-add-cart">Quick View</a>
                                         </div>
-                                        <span class="product-new-top">New</span>
                                     </div>
-                                    <div class="item-info-product">
-                                        <div class="info-product-price">
-                                            <div class="grid_meta">
-                                                <div class="product_price">
-                                                    <h4>
-                                                        <a href="single.html">@i.Name</a>
-                                                    </h4>
+                                    <span class="product-new-top">New</span>
+                                </div>
+                                <div class="item-info-product">
+                                    <div class="info-product-price">
+                                        <div class="grid_meta">
+                                            <div class="product_price">
+                                                <h4>
+                                                    <a href="single.html">@i.Name</a>
+                                                </h4>
 
-                                                    <div class="grid-price mt-2">
-                                                        <span class="money ">$@i.Price </span>
-                                                    </div>
-
+                                                <div class="grid-price mt-2">
+                                                    <span class="money ">$@i.Price </span>
                                                 </div>
-                                                <ul class="stars">
-                                                    <li>
-                                                        <a href="#">
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                                                        </a>
-                                                    </li>
-                                                </ul>
+
                                             </div>
-                                            <div class="googles single-item hvr-outline-out">
-                                                @*<form action="#" method="post">
+                                            <ul class="stars">
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="googles single-item hvr-outline-out">
+                                            @*<form action="#" method="post">
                                             <input type="hidden" name="cmd" value="_cart">
                                             <input type="hidden" name="add" value="1">
                                             <input type="hidden" name="googles_item" value=@i.Name>
@@ -784,215 +843,315 @@
                                                 <i class="fas fa-cart-plus"></i>
                                             </button>
                                         </form>*@
-                                                <a href="@Url.Action("AddCart", "Carts", new {Id=@i.Id, Name=@i.Name, Price=@i.Price})">
-                                                    <i class="fa fa-shopping-cart" style="font-size:20px;color:black" aria-hidden="true"></i>
-                                                </a>
-                                            </div>
+                                            <a href="@Url.Action("AddCart", "Carts", new {Id=@i.Id, Name=@i.Name, Price=@i.Price})">
+                                                <i class="fa fa-shopping-cart" style="font-size:20px;color:black" aria-hidden="true"></i>
+                                            </a>
                                         </div>
-                                        <div class="clearfix"></div>
                                     </div>
+                                    <div class="clearfix"></div>
                                 </div>
                             </div>
                         </div>
-                    }
-                </div>
-
-                <!-- /testimonials -->
-                <div class="testimonials py-lg-4 py-3 mt-4">
-                    <div class="testimonials-inner py-lg-4 py-3">
-                        <h3 class="tittle-w3layouts text-center my-lg-4 my-4">Testimonials</h3>
-                        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                            <div class="carousel-inner" role="listbox">
-                                <div class="carousel-item active">
-                                    <div class="testimonials_grid text-center">
-                                        <h3>
-                                            <span>Customer</span>
-                                        </h3>
-                                        <label>United States</label>
-                                        <p>
-                                            Multiply them herb is bearing the the a. Bring face female winged sixth beast
-                                            god abundantly saw rule great first morning waters him. Lights itself sixth,
-                                            you signs years subdue life together lights were morning. You're Lights
-                                            green night thing day I for. First. Meat firmament she'd above cattle. Unto
-                                            sea second stars divided living was morning day created. Day brought she'd
-                                            all stars. Herb moved subdue thing a green thing a don't lesser. Creeping
-                                            open own brought god subdue years let grass be given man he of. Appear from
-                                            thing all also. Isn't two don't. Days abundantly multiply Seed.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="carousel-item">
-                                    <div class="testimonials_grid text-center">
-                                        <h3>
-                                            <span>Customer</span>
-                                        </h3>
-                                        <label>United States</label>
-                                        <p>
-                                            Multiply them herb is bearing the the a. Bring face female winged sixth beast
-                                            god abundantly saw rule great first morning waters him. Lights itself sixth,
-                                            you signs years subdue life together lights were morning. You're Lights
-                                            green night thing day I for. First. Meat firmament she'd above cattle. Unto
-                                            sea second stars divided living was morning day created. Day brought she'd
-                                            all stars. Herb moved subdue thing a green thing a don't lesser. Creeping
-                                            open own brought god subdue years let grass be given man he of. Appear from
-                                            thing all also. Isn't two don't. Days abundantly multiply Seed.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="carousel-item">
-                                    <div class="testimonials_grid text-center">
-                                        <h3>
-                                            <span>Customer</span>
-                                        </h3>
-                                        <label>United States</label>
-                                        <p>
-                                            Multiply them herb is bearing the the a. Bring face female winged sixth beast
-                                            god abundantly saw rule great first morning waters him. Lights itself sixth,
-                                            you signs years subdue life together lights were morning. You're Lights
-                                            green night thing day I for. First. Meat firmament she'd above cattle. Unto
-                                            sea second stars divided living was morning day created. Day brought she'd
-                                            all stars. Herb moved subdue thing a green thing a don't lesser. Creeping
-                                            open own brought god subdue years let grass be given man he of. Appear from
-                                            thing all also. Isn't two don't. Days abundantly multiply Seed.
-                                        </p>
-                                    </div>
-                                </div>
-                                <a class="carousel-control-prev test" href="#carouselExampleControls" role="button"
-                                   data-slide="prev">
-                                    <span class="fas fa-long-arrow-alt-left"></span>
-                                    <span class="sr-only">Previous</span>
-                                </a>
-                                <a class="carousel-control-next test" href="#carouselExampleControls" role="button"
-                                   data-slide="next">
-                                    <span class="fas fa-long-arrow-alt-right" aria-hidden="true"></span>
-                                    <span class="sr-only">Next</span>
-
-                                </a>
-                            </div>
-                        </div>
                     </div>
-                </div>
-                <!-- //testimonials -->
-                <div class="row galsses-grids pt-lg-5 pt-3">
-                    <div class="col-lg-6 galsses-grid-left">
-                        <figure class="effect-lexi">
-                            <img src="images/banner4.jpg" alt="" class="img-fluid">
-                            <figcaption>
-                                <h3>
-                                    Editor's
-                                    <span>Pick</span>
-                                </h3>
-                                <p> Express your style now.</p>
-                            </figcaption>
-                        </figure>
-                    </div>
-                    <div class="col-lg-6 galsses-grid-left">
-                        <figure class="effect-lexi">
-                            <img src="images/banner1.jpg" alt="" class="img-fluid">
-                            <figcaption>
-                                <h3>
-                                    Editor's
-                                    <span>Pick</span>
-                                </h3>
-                                <p>Express your style now.</p>
-                            </figcaption>
-                        </figure>
-                    </div>
-                </div>
-                <!-- /grids -->
-                <div class="bottom-sub-grid-content py-lg-5 py-3">
-                    <div class="row">
-                        <div class="col-lg-4 bottom-sub-grid text-center">
-                            <div class="bt-icon">
-
-                                <span class="far fa-hand-paper"></span>
-                            </div>
-
-                            <h4 class="sub-tittle-w3layouts my-lg-4 my-3">Satisfaction Guaranteed</h4>
-                            <p>
-                                Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem
-                                nec elit.
-                            </p>
-                            <p>
-                                <a href="shop.html" class="btn btn-sm animated-button gibson-three mt-4">Shop Now</a>
-                            </p>
-                        </div>
-                        <!-- /.col-lg-4 -->
-                        <div class="col-lg-4 bottom-sub-grid text-center">
-                            <div class="bt-icon">
-                                <span class="fas fa-rocket"></span>
-                            </div>
-
-                            <h4 class="sub-tittle-w3layouts my-lg-4 my-3">Fast Shipping</h4>
-                            <p>
-                                Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem
-                                nec elit.
-                            </p>
-                            <p>
-                                <a href="shop.html" class="btn btn-sm animated-button gibson-three mt-4">Shop Now</a>
-                            </p>
-                        </div>
-                        <!-- /.col-lg-4 -->
-                        <div class="col-lg-4 bottom-sub-grid text-center">
-                            <div class="bt-icon">
-                                <span class="far fa-sun"></span>
-                            </div>
-
-                            <h4 class="sub-tittle-w3layouts my-lg-4 my-3">UV Protection</h4>
-                            <p>
-                                Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem
-                                nec elit.
-                            </p>
-                            <p>
-                                <a href="shop.html" class="btn btn-sm animated-button gibson-three mt-4">Shop Now</a>
-                            </p>
-                        </div>
-                        <!-- /.col-lg-4 -->
-                    </div>
-                </div>
-                <!-- //grids -->
-                <!-- /clients-sec -->
-                <div class="testimonials p-lg-5 p-3 mt-4">
-                    <div class="row last-section">
-                        <div class="col-lg-3 footer-top-w3layouts-grid-sec">
-                            <div class="mail-grid-icon text-center">
-                                <i class="fas fa-gift"></i>
-                            </div>
-                            <div class="mail-grid-text-info">
-                                <h3>Genuine Product</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 footer-top-w3layouts-grid-sec">
-                            <div class="mail-grid-icon text-center">
-                                <i class="fas fa-shield-alt"></i>
-                            </div>
-                            <div class="mail-grid-text-info">
-                                <h3>Secure Products</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 footer-top-w3layouts-grid-sec">
-                            <div class="mail-grid-icon text-center">
-                                <i class="fas fa-dollar-sign"></i>
-                            </div>
-                            <div class="mail-grid-text-info">
-                                <h3>Cash on Delivery</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 footer-top-w3layouts-grid-sec">
-                            <div class="mail-grid-icon text-center">
-                                <i class="fas fa-truck"></i>
-                            </div>
-                            <div class="mail-grid-text-info">
-                                <h3>Easy Delivery</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- //clients-sec -->
+                }
             </div>
+
+            <!-- /testimonials -->
+            <div class="testimonials py-lg-4 py-3 mt-4">
+                <div class="testimonials-inner py-lg-4 py-3">
+                    <h3 class="tittle-w3layouts text-center my-lg-4 my-4">Testimonials</h3>
+                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner" role="listbox">
+                            <div class="carousel-item active">
+                                <div class="testimonials_grid text-center">
+                                    <h3>
+                                        <span>Customer</span>
+                                    </h3>
+                                    <label>United States</label>
+                                    <p>
+                                        Multiply them herb is bearing the the a. Bring face female winged sixth beast
+                                        god abundantly saw rule great first morning waters him. Lights itself sixth,
+                                        you signs years subdue life together lights were morning. You're Lights
+                                        green night thing day I for. First. Meat firmament she'd above cattle. Unto
+                                        sea second stars divided living was morning day created. Day brought she'd
+                                        all stars. Herb moved subdue thing a green thing a don't lesser. Creeping
+                                        open own brought god subdue years let grass be given man he of. Appear from
+                                        thing all also. Isn't two don't. Days abundantly multiply Seed.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="testimonials_grid text-center">
+                                    <h3>
+                                        <span>Customer</span>
+                                    </h3>
+                                    <label>United States</label>
+                                    <p>
+                                        Multiply them herb is bearing the the a. Bring face female winged sixth beast
+                                        god abundantly saw rule great first morning waters him. Lights itself sixth,
+                                        you signs years subdue life together lights were morning. You're Lights
+                                        green night thing day I for. First. Meat firmament she'd above cattle. Unto
+                                        sea second stars divided living was morning day created. Day brought she'd
+                                        all stars. Herb moved subdue thing a green thing a don't lesser. Creeping
+                                        open own brought god subdue years let grass be given man he of. Appear from
+                                        thing all also. Isn't two don't. Days abundantly multiply Seed.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="testimonials_grid text-center">
+                                    <h3>
+                                        <span>Customer</span>
+                                    </h3>
+                                    <label>United States</label>
+                                    <p>
+                                        Multiply them herb is bearing the the a. Bring face female winged sixth beast
+                                        god abundantly saw rule great first morning waters him. Lights itself sixth,
+                                        you signs years subdue life together lights were morning. You're Lights
+                                        green night thing day I for. First. Meat firmament she'd above cattle. Unto
+                                        sea second stars divided living was morning day created. Day brought she'd
+                                        all stars. Herb moved subdue thing a green thing a don't lesser. Creeping
+                                        open own brought god subdue years let grass be given man he of. Appear from
+                                        thing all also. Isn't two don't. Days abundantly multiply Seed.
+                                    </p>
+                                </div>
+                            </div>
+                            <a class="carousel-control-prev test" href="#carouselExampleControls" role="button"
+                               data-slide="prev">
+                                <span class="fas fa-long-arrow-alt-left"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next test" href="#carouselExampleControls" role="button"
+                               data-slide="next">
+                                <span class="fas fa-long-arrow-alt-right" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- //testimonials -->
+            <!-- Most Ordered-->
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="tittle-w3layouts my-lg-4 my-4">Most Ordered </h3>
+                </div>
+            </div>
+            <div class="row">
+
+                <!-- /womens -->
+                @* By SM on Nov 13, 2020 for Featured Products *@
+                @foreach (var i in Model.FeaturedProduct)
+                {
+                    <div class="col-md-3 product-men women_two">
+
+                        <div class="product-googles-info googles">
+                            <div class="men-pro-item">
+                                <div class="men-thumb-item">
+                                    @foreach (var p in i.ProductPictureMappings)
+                                    {
+                                        int len = i.ProductPictureMappings.Count;
+
+                                        for (int j = 0; j < len;)
+                                        {
+                                            <img src='@Url.Content(p.Picture.FileName )' class="img-fluid" alt="">j = len;
+                                            break;
+
+                                        }
+                                        break;
+                                    }
+                                    <div class="men-cart-pro">
+                                        <div class="inner-men-cart-pro">
+                                            @*<a href="single.html" class="link-product-add-cart">Quick View</a>*@
+                                            <a href="@Url.Action("Details", "Product", new {id=i.Id})" class="link-product-add-cart">Quick View</a>
+                                        </div>
+                                    </div>
+                                    <span class="product-new-top">New</span>
+                                </div>
+                                <div class="item-info-product">
+                                    <div class="info-product-price">
+                                        <div class="grid_meta">
+                                            <div class="product_price">
+                                                <h4>
+                                                    <a href="single.html">@i.Name</a>
+                                                </h4>
+
+                                                <div class="grid-price mt-2">
+                                                    <span class="money ">$@i.Price </span>
+                                                </div>
+
+                                            </div>
+                                            <ul class="stars">
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="googles single-item hvr-outline-out">
+                                            @*<form action="#" method="post">
+                                            <input type="hidden" name="cmd" value="_cart">
+                                            <input type="hidden" name="add" value="1">
+                                            <input type="hidden" name="googles_item" value=@i.Name>
+                                            <input type="hidden" name="amount" value=@i.Price>
+                                            <button type="submit" class="googles-cart pgoogles-cart">
+                                                <i class="fas fa-cart-plus"></i>
+                                            </button>
+                                        </form>*@
+                                            <a href="@Url.Action("AddCart", "Carts", new {Id=@i.Id, Name=@i.Name, Price=@i.Price})">
+                                                <i class="fa fa-shopping-cart" style="font-size:20px;color:black" aria-hidden="true"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="row galsses-grids pt-lg-5 pt-3">
+                <div class="col-lg-6 galsses-grid-left">
+                    <figure class="effect-lexi">
+                        <img src="images/banner4.jpg" alt="" class="img-fluid">
+                        <figcaption>
+                            <h3>
+                                Editor's
+                                <span>Pick</span>
+                            </h3>
+                            <p> Express your style now.</p>
+                        </figcaption>
+                    </figure>
+                </div>
+                <div class="col-lg-6 galsses-grid-left">
+                    <figure class="effect-lexi">
+                        <img src="images/banner1.jpg" alt="" class="img-fluid">
+                        <figcaption>
+                            <h3>
+                                Editor's
+                                <span>Pick</span>
+                            </h3>
+                            <p>Express your style now.</p>
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+            <!-- /grids -->
+            <div class="bottom-sub-grid-content py-lg-5 py-3">
+                <div class="row">
+                    <div class="col-lg-4 bottom-sub-grid text-center">
+                        <div class="bt-icon">
+
+                            <span class="far fa-hand-paper"></span>
+                        </div>
+
+                        <h4 class="sub-tittle-w3layouts my-lg-4 my-3">Satisfaction Guaranteed</h4>
+                        <p>
+                            Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem
+                            nec elit.
+                        </p>
+                        <p>
+                            <a href="shop.html" class="btn btn-sm animated-button gibson-three mt-4">Shop Now</a>
+                        </p>
+                    </div>
+                    <!-- /.col-lg-4 -->
+                    <div class="col-lg-4 bottom-sub-grid text-center">
+                        <div class="bt-icon">
+                            <span class="fas fa-rocket"></span>
+                        </div>
+
+                        <h4 class="sub-tittle-w3layouts my-lg-4 my-3">Fast Shipping</h4>
+                        <p>
+                            Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem
+                            nec elit.
+                        </p>
+                        <p>
+                            <a href="shop.html" class="btn btn-sm animated-button gibson-three mt-4">Shop Now</a>
+                        </p>
+                    </div>
+                    <!-- /.col-lg-4 -->
+                    <div class="col-lg-4 bottom-sub-grid text-center">
+                        <div class="bt-icon">
+                            <span class="far fa-sun"></span>
+                        </div>
+
+                        <h4 class="sub-tittle-w3layouts my-lg-4 my-3">UV Protection</h4>
+                        <p>
+                            Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem
+                            nec elit.
+                        </p>
+                        <p>
+                            <a href="shop.html" class="btn btn-sm animated-button gibson-three mt-4">Shop Now</a>
+                        </p>
+                    </div>
+                    <!-- /.col-lg-4 -->
+                </div>
+            </div>
+            <!-- //grids -->
+            <!-- /clients-sec -->
+            <div class="testimonials p-lg-5 p-3 mt-4">
+                <div class="row last-section">
+                    <div class="col-lg-3 footer-top-w3layouts-grid-sec">
+                        <div class="mail-grid-icon text-center">
+                            <i class="fas fa-gift"></i>
+                        </div>
+                        <div class="mail-grid-text-info">
+                            <h3>Genuine Product</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 footer-top-w3layouts-grid-sec">
+                        <div class="mail-grid-icon text-center">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="mail-grid-text-info">
+                            <h3>Secure Products</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 footer-top-w3layouts-grid-sec">
+                        <div class="mail-grid-icon text-center">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <div class="mail-grid-text-info">
+                            <h3>Cash on Delivery</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 footer-top-w3layouts-grid-sec">
+                        <div class="mail-grid-icon text-center">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <div class="mail-grid-text-info">
+                            <h3>Easy Delivery</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- //clients-sec -->
+        </div>
     </div>
 </section>
